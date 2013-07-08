@@ -1,6 +1,6 @@
 <?php 
 
-function authorNotification($post_id) {
+/*function authorNotification($post_id) {
     $userMail=get_post_meta($post->ID,'wpcf-parent_email',true);
 	$userName=get_post_meta($post->ID,'wpcf-user_parent',true);
 	  $message = "
@@ -13,4 +13,16 @@ function authorNotification($post_id) {
    }
 }
 
-add_action('publish_post', 'authorNotification');
+add_action('publish_post', 'function_to_perform');
+add_action('publish_{user-gallery}', 'function_to_perform');
+
+function  function_to_perform(){
+	add_filter('the_title',function($con){
+		return $con." --- pub";
+		
+	});
+}
+add_filter('the_title',function($con){
+		return $con." --- pub";
+		
+	});*/

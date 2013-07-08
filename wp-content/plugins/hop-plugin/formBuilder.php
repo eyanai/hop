@@ -42,9 +42,12 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 	
 	//echo "the field is:". the_field('gallery_show','gallery_cat_'.$cat->term_id).'<br><br>'; 
 	$categories = get_categories(array('taxonomy'=> $toxsonomy));
+//	echo $site_url = network_site_url( '/' );
+	//echo $_SERVER['REQUEST_URI'];
+		
 	echo "<fieldset>
 			<legend>".$pageTitle."</legend>
-			<form  action=\" ".$_SERVER['PHP_SELF'] ;
+			<form  action=\"".$_SERVER['REQUEST_URI']; ;
 	echo   " \" method=\"post\" enctype=\"multipart/form-data\" target=\"my_frame\">
 				";
 				
