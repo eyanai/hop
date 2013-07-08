@@ -1,0 +1,43 @@
+#my_frame {
+	visibility: hidden;
+	width: 0px;
+	height: 0px;
+}
+.massegShow{
+	display:none ;
+	width:400px;
+	height:200px;
+	width:350px;
+	border:1px solid black;
+	margin:0 auto;
+	  
+	/* Internet Explorer 10 */
+	-ms-flex-pack:center;
+	-ms-flex-align:center;
+	
+	/* Firefox */
+-moz-box-pack:center;
+	-moz-box-align:center;
+	
+	/* Safari, Chrome, and Opera */
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+	
+	/* W3C */
+	box-pack:center;
+	box-align:center;
+}
+fieldset{
+	border-radius:10px;
+	-webkit-box-shadow:#06C 0px 2px 3px 3px;
+	box-shadow:#06C 0px 2px 3px 3px;
+}
+legend{
+	font-size:1.3em;
+	background-color:rgba(0,204,255,1);
+	border-radius:3px;
+	color:#333;
+	margin:0 auto;
+	width:250px;
+	text-align:center;
+}
