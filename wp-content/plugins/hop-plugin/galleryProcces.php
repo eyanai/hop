@@ -12,6 +12,7 @@ function galley_form($postType='user-gallery',$postCat='gallery_cat'){
 	if(!isset($_POST['userSubmit'])){
 		gallery_form_add();
 	}else{
+		
 				$all=array();
 					$Uname=filter_input(INPUT_POST,'username',FILTER_SANITIZE_STRING);
 					$Ulastname=filter_input(INPUT_POST,'userlastname',FILTER_SANITIZE_STRING);
@@ -71,15 +72,19 @@ function galley_form($postType='user-gallery',$postCat='gallery_cat'){
 				update_post_meta($postid, 'wpcf-message', $message); 
 				update_post_meta($postid, 'wpcf-agree', $agree);
 				
+				
+				//for email tracikng
+				add_post_meta($postid, 'post_report', 'pending');
+				
 				///file uplode
 				
 				$images = $_FILES['file'];
 	
 					//Upload Images
 					if($images){
-					include_once($_SERVER['DOCUMENT_ROOT'].'/hop/wp-admin/includes/media.php');
-					include_once($_SERVER['DOCUMENT_ROOT'].'/hop/wp-admin/includes/file.php');
-					include_once($_SERVER['DOCUMENT_ROOT'].'/hop/wp-admin/includes/image.php');
+					 require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+					 require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+					 require_once(ABSPATH . "wp-admin" . '/includes/media.php');
 					foreach($_FILES as $field => $file){
 						$filename=$_FILES["file"]["name"];
 						$uploadedfile = $_FILES['file'];
@@ -95,9 +100,9 @@ function galley_form($postType='user-gallery',$postCat='gallery_cat'){
 									'guid' => $uploaded_file['url']
 									);
 			
-								//	echo "<pre>".$uploaded_file['file']."    ------------------ move file ---    <br> ";
-								//	echo $uploaded_file['url']."    ------------------ move URl ---   </pre>  ";
-									// Create an Attachment in WordPress
+									echo "<pre>".$uploaded_file['file']."    ------------------ move file ---    <br> ";
+									echo $uploaded_file['url']."    ------------------ move URl ---   </pre>  ";
+									 //Create an Attachment in WordPress
 									$id = wp_insert_attachment( $attachment,$uploaded_file['file'], $postid );	
 									
 									update_post_meta($postid,'wpcf-user_img', $uploaded_file['url']);
@@ -110,6 +115,7 @@ function galley_form($postType='user-gallery',$postCat='gallery_cat'){
 									echo "<span id='respons'>filed</span>";
 								}
 						}//end forech
+						echo "<span id='respons'>ok</span>";
 					}
 					echo "<span id='respons'>ok</span>";
 			}//end if isset
