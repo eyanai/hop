@@ -137,4 +137,3 @@
 
 
 	<div id="main">
- <?php if (function_exists('HAG_Breadcrumbs')) { HAG_Breadcrumbs(); } ?>

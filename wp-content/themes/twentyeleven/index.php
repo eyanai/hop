@@ -14,115 +14,8 @@
 
 get_header(); ?>
 
-<?php 
-	if(isset($_POST['mysub'])){
-		require_once(ABSPATH . "wp-admin" . '/includes/image.php');
-  require_once(ABSPATH . "wp-admin" . '/includes/file.php');
-  require_once(ABSPATH . "wp-admin" . '/includes/media.php');
-
-		echo "submit!!!!";
-		if(!empty($_FILES['myfile'])){
-			$overwit=array('test_form'=>false); 
-			$file=wp_handle_upload($_FILES['myfile'],$overwit);
-			$fileUrl=$file['uel'];//url is the new location caming throw array
-			echo $fileUrl;	
-		}else{
-			
-			//$option['logo']=$this->option['logo'];
-			echo "not sesssed!!!!!!!!!!!!!";
-		}
-	
-	}
-
-
-?>
-	<?php $u = array(
-		'blog_id'      => $GLOBALS['blog_id'],
-		'role'         => '',
-		'meta_key'     => '',
-		'meta_value'   => '',
-		'meta_compare' => '',
-		'meta_query'   => array(),
-		'include'      => array(),
-		'exclude'      => array(),
-		'orderby'      => 'login',
-		'order'        => 'ASC',
-		'offset'       => '',
-		'search'       => '',
-		'number'       => '',
-		'count_total'  => false,
-		'fields'       => 'all',
-		'who'          => ''
-	 ); 
-	 
-	
-	 
-	 ?>
-	 
-	 <ul>
-<?php
-    $blogusers = get_users($u);
-    foreach ($blogusers as $user) {
-        echo '<li>' . $user->user_email ;
-   	
-				if ( is_user_logged_in() ) {
-					echo 'Welcome, registered user!';
-				} else {
-					echo 'Welcome, visitor!';
-				}
-
-			
-		}
-?>
-</ul>
-	 <?php $args = array(
-        'echo' => true,
-        'redirect' => site_url( $_SERVER['REQUEST_URI'] ), 
-        'form_id' => 'loginform',
-        'label_username' => __( 'Username' ),
-        'label_password' => __( 'Password' ),
-        'label_remember' => __( 'Remember Me' ),
-        'label_log_in' => __( 'Log In' ),
-        'id_username' => 'user_login',
-        'id_password' => 'user_pass',
-        'id_remember' => 'rememberme',
-        'id_submit' => 'wp-submit',
-        'remember' => true,
-        'value_username' => NULL,
-        'value_remember' => false ); ?> 
-		<?php wp_login_form( $args ); ?> 
-	 
 		<div id="primary">
 			<div id="content" role="main">
-			<ul>
-				<?php
-				
-				global $post;
-				
-				$args = array(
-			'offset'          => 0,
-			'mutag'        => 'דורה',
-			'orderby'         => 'post_date',
-			'order'           => 'DESC',
-			'post_type'       => 'hope-test',
-			'post_status'     => 'publish',
-			'suppress_filters' => true  
-			);
-				
-				$myposts = get_posts( $args );
-				
-				//print_r($myposts,1);
-				
-				foreach( $myposts as $post ) : setup_postdata($post); ?>
-					<li>
-						  <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-						</li>
-				<?php endforeach; ?>
-
-			</ul>
-			
-			
-			
 
 			<?php if ( have_posts() ) : ?>
 
@@ -154,11 +47,6 @@ get_header(); ?>
 
 			</div><!-- #content -->
 		</div><!-- #primary -->
-		
-		<form action="<?php $_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data">
-			<input type="file" name="myfile">
-			<input type="submit" name="mysub">
-		</form>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
