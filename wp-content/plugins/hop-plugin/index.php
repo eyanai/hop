@@ -54,13 +54,14 @@ function authorNotification ($post_id) {
 	
 	update_post_meta($post_id, 'post_report', $statyus);
 	
-		$userMail=get_post_meta($post->ID,'wpcf-parent_email',true);
-			$userName=get_post_meta($post->ID,'wpcf-user_parent',true);
+		$userMail=get_post_meta($post_id,'wpcf-parent_email',true);
+			$userName=get_post_meta($post_id,'wpcf-user_parent',true);
 			  $message = " שלום ".$userName.",התמונה, ".$post->post_title." פורסמה לפי שיקולי המערכת ".get_permalink( $post_id ).". בהצלחה!";
 		   if($userMail) {
 			   wp_mail($userMail, "התמונה שלך פורסמה !!!", $message);
 				update_post_meta($post_id, 'post_report', 'mail send');
 		   }
+		
 		
 				
 		

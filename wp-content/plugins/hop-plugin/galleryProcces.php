@@ -13,7 +13,6 @@ function galley_form($postType='user-gallery',$postCat='gallery_cat'){
 		gallery_form_add();
 	}else{
 		
-				echo "hllo!!!!!!!!!!!!!!!!!!!!!";
 				$all=array();
 					$Uname=filter_input(INPUT_POST,'username',FILTER_SANITIZE_STRING);
 					$Ulastname=filter_input(INPUT_POST,'userlastname',FILTER_SANITIZE_STRING);
@@ -83,9 +82,9 @@ function galley_form($postType='user-gallery',$postCat='gallery_cat'){
 	
 					//Upload Images
 					if($images){
-					include_once($_SERVER['DOCUMENT_ROOT'].'/hop/wp-admin/includes/media.php');
-					include_once($_SERVER['DOCUMENT_ROOT'].'/hop/wp-admin/includes/file.php');
-					include_once($_SERVER['DOCUMENT_ROOT'].'/hop/wp-admin/includes/image.php');
+					 require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+					 require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+					 require_once(ABSPATH . "wp-admin" . '/includes/media.php');
 					foreach($_FILES as $field => $file){
 						$filename=$_FILES["file"]["name"];
 						$uploadedfile = $_FILES['file'];
