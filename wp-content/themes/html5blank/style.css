@@ -407,7 +407,7 @@ table {
 }
 
 /*======================footer css================+++++==========================++++*/
-.infobox{
+.infoBox{
 	clear:both;
 }
 .info{
@@ -429,4 +429,7 @@ table {
 }
 .info p{
 	float:right;
+}
+.top_menu_r.small{
+	font-size:0.8em;	
 }

@@ -18,12 +18,13 @@
 			</nav>
 			<section class="infoBox cf">
 				<?php $argsInfo = array(
-	'posts_per_page'  => 1,
-	'orderby'         => 'post_date',
-	'order'           => 'DESC',
-	'post_type'       => 'info_box',
-	'post_status'     => 'publish',
-	'suppress_filters' => true ); 
+					'posts_per_page'  => -1,
+					'orderby'         => 'post_date',
+					'order'           => 'DESC',
+					'post_type'       => 'info_box',
+					'post_status'     => 'publish',
+					'suppress_filters' => true 
+					); 
 	
 			$infos=get_posts($argsInfo); 
 			
@@ -57,8 +58,34 @@
 			<?php  endforeach; //end info ?>
 			
 			</section>
-			
-			
+			<hr>
+			<?php $defaults = array(
+					'menu'            => 'מפת אתר',
+					'container'       => 'div',
+					'menu_class'      => 'top_menu_r small',
+					'echo'            => true,
+					'fallback_cb'     => 'wp_page_menu',
+					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>  ',
+					'depth'           => 0,
+					'walker'          => ''
+				);
+				
+				wp_nav_menu( $defaults );
+				
+				$defaults = array(
+					'menu'            => 'איקונים פוטר',
+					'container'       => 'div',
+					'menu_class'      => 'top_menu_l small',
+					'echo'            => true,
+					'fallback_cb'     => 'wp_page_menu',
+					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>  ',
+					'depth'           => 0,
+					'walker'          => ''
+				);
+				
+				wp_nav_menu( $defaults );
+				
+			?>
 				<!-- copyright -->
 				<p class="copyright">
 					&copy; <?php echo date("Y"); ?> Copyright <?php bloginfo('name'); ?>. Powered by Yanai edri 
