@@ -15,7 +15,7 @@ require_once('ajax.php');
 require_once('formBuilder.php');
 require_once('galleryProcces.php');
 require_once('mail.php');
-
+require_once('postSetting.php');
 /* Register with hook 'wp_enqueue_scripts', which can be used for front end CSS and JavaScript
  */
 add_action( 'wp_enqueue_scripts', 'prefix_add_my_stylesheet' );
@@ -28,8 +28,6 @@ function prefix_add_my_stylesheet() {
 	wp_register_style( 'prefix-style', plugins_url('/css/main.css', __FILE__) );
 	wp_enqueue_style( 'prefix-style' );
 }
-
-
 
 add_action('transition_post_status', 'my_function', 10, 3);
 function my_function($new_status, $old_status, $post ) {
@@ -69,4 +67,6 @@ function authorNotification ($post_id) {
 }
 
 add_action('publish_user-gallery', 'authorNotification');
+
+
 
