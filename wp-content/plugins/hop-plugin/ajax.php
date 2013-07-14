@@ -1,6 +1,10 @@
 <?php
-wp_enqueue_script( 'ajax-script', plugins_url().'/hop-plugin/js/form.js', array('jquery'), 1.0 ); // jQuery will be included automatically
-	wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) ); // setting ajaxur
+//wp_deregister_script('jquery'); 
+//wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js', array(), '1.9.1'); // Google CDN jQuery
+
+
+	wp_enqueue_script( 'ajax-script', plugins_url().'/hop-plugin/js/form.js', array('jquery'), 1.0 ); // jQuery will be included automatically
+		wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) ); // setting ajaxur
 	
 	add_action( 'wp_ajax_dom_cilck', 'dom' ); // ajax for logged in users
 	add_action( 'wp_ajax_nopriv_dom_cilck', 'dom' ); // ajax for not logged in users
