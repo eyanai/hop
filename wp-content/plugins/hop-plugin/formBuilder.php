@@ -47,7 +47,7 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 		
 	echo "<fieldset>
 			<legend>".$pageTitle."</legend>
-			<form  action=\"".$_SERVER['REQUEST_URI']; ;
+			<form  action=\"".$_SERVER['REQUEST_URI']; 
 	echo   " \" method=\"post\" enctype=\"multipart/form-data\" target=\"my_frame\">
 				";
 				

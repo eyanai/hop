@@ -30,6 +30,7 @@ $('#galId').on('change',function(){
 	});
 	
 	
+	
 });
 
 function req(data){
