@@ -28,7 +28,7 @@
 					'orderby'                  => 'name',
 					'order'                    => 'ASC',
 					//'hide_empty'               => 1,
-					//'hierarchical'             => 1,
+					'hierarchical'             => 1,
 					'exclude'                  => '',
 					'include'                  => '',
 					'number'                   => '',
