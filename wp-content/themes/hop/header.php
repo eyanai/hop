@@ -41,10 +41,118 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<?php /*?>	<header class="topheader">
+			<nav class="topnav">
+				<?php $defaults = array(
+					'theme_location'  => '',
+					'menu'            => 'top_menu',
+					'container'       => 'div',
+					'container_class' => '',
+					'container_id'    => '',
+					'menu_class'      => 'top_menu_r',
+					'menu_id'         => '',
+					'echo'            => true,
+					'fallback_cb'     => 'wp_page_menu',
+					'before'          => '',
+					'after'           => '',
+					'link_before'     => '',
+					'link_after'      => '',
+					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>  ',
+					'depth'           => 0,
+					'walker'          => ''
+				);
+				
+				wp_nav_menu( $defaults );
+			?>
+				<ul class="fixLInk">
+					<li><a href="#">הופ ילדות ישראלית</a></li>
+					<li><a href="#">לולי</a></li>
+				</ul>
+			
+			<?php	 get_search_form( $echo ); ?>	
+			<?php $defaults = array(
+					'theme_location'  => '',
+					'menu'            => 'social_top',
+					'container'       => 'div',
+					'container_class' => '',
+					'container_id'    => '',
+					'menu_class'      => 'top_menu_l',
+					'menu_id'         => '',
+					'echo'            => true,
+					'fallback_cb'     => 'wp_page_menu',
+					'before'          => '',
+					'after'           => '',
+					'link_before'     => '',
+					'link_after'      => '',
+					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>  ',
+					'depth'           => 0,
+					'walker'          => ''
+				);
+				
+				wp_nav_menu( $defaults );
+			?>
+			
+			</nav>
+			
+		</header><?php */?>
+		<!-- wrapper -->
+		<div class="wrapper cf">
 	
-	<div id="page-wrap">
-
-		<div id="header">
-			<h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
-			<div class="description"><?php bloginfo('description'); ?></div>
-		</div>
+			<!-- header -->
+			<header class="header clear" role="banner">
+				
+					<!-- logo -->
+					<?php /*?><div class="logo">
+						<a href="<?php echo home_url(); ?>">
+							<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
+							<img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Logo" class="logo-img">
+						</a>
+					</div><?php */?>
+					<!-- /logo -->
+					
+					<!-- nav -->
+					<nav class="nav" role="navigation">
+					<?php // wp_nav_menu(array('menu'=>'תפריט עליון','menu_class'=> 'nav_menu'));?>
+					</nav>
+					<?php /*?><nav class="mutags_nav">
+						<ul class="mutagSlider">
+						<?php $args = array(
+							'child_of'                 => 0,
+							'orderby'                  => 'name',
+							'order'                    => 'ASC',
+							'hide_empty'               => 0,
+							'hierarchical'             =>0,
+							'taxonomy'                 => 'category',
+							'pad_counts'               => false );
+							
+							$categories = get_categories( $args );
+							
+							foreach($categories as $mutag){
+							 $category_link = get_category_link($mutag->cat_ID);	
+								//echo $category_link;
+								?>
+							<li data-play="play_<?php echo $mutag->term_id;?>">
+							<a href="<?php echo esc_url( $category_link ); ?>" title="Category Name">
+							<?php $imgUrl=get_field('mutag_img','category_'.$mutag->term_id);//echo "<pre>".print_r($f,1)."</pre>"; 
+								?>
+									<img src="<?php echo $imgUrl['url'];?>" title="<?php echo $mutag->name;?>">
+							</a>
+							<?php $audioUrl=get_field('mutag_sound','category_'.$mutag->term_id);
+							//echo "aodio:<pre>".print_r($audioUrl,1)."</pre>"; 
+								?>
+							<audio preload="auto" id="play_<?php echo $mutag->term_id;?>">
+								<source src="<?php echo $audioUrl['url'];?>" type="audio/mpeg">
+							</audio>
+							<li>
+							<?php
+									}
+							
+							?>
+							
+						</ul>
+					</nav><?php */?>
+					<!-- /nav -->
+			
+			</header>
+			<!-- /header -->
+			<?php if (function_exists('HAG_Breadcrumbs')) { HAG_Breadcrumbs(); } ?>

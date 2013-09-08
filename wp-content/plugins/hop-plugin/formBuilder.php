@@ -72,56 +72,68 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 		echo    "
 						<br>
 			
-				<label for='username'>שם משתמש:</label><input type='text' name='username' id='username' ";
-				if($userName_fiede){echo " class='req' ";};
+				<label for='username'>שם משתמש:</label>
+				<input type='text' name='username' id='username' placeholder='שם פרטי' ";
+				if($userName_fiede){echo " class='req' required ";};
 				echo ">
-				<label for='userlastname'>שם משפחה:</label><input type='text' name='userlastname' id='userlastname' ";
-				if($userLastNmae__fiede){echo " class='req' ";};
+				<label for='userlastname'>שם משפחה:</label>
+				<input type='text' name='userlastname' id='userlastname' placeholder='שם משפחה' ";
+				if($userLastNmae__fiede){echo " class='req' required ";};
 				echo">
-				<label for='userSchool'>בית ספר:</label><input type='text' name='userSchool' id='userSchool' ";
-				if($school_field){echo " class='req' ";};
+				<label for='userSchool'>בית ספר:</label>
+				<input type='text' name='userSchool' id='userSchool' placeholder='שם גן ילדים/ בי\"ס' ";
+				if($school_field){echo " class='req' required ";};
 				echo ">
-				<label for='userCalss'>כיתה:</label><input type='text' name='userCalss' id='userCalss' ";
-				if($userClass_field){echo " class='req' ";};
+				<label for='userCalss'>כיתה:</label>
+				<input type='text' name='userCalss' id='userCalss'  ";
+				if($userClass_field){echo " class='req' required ";};
 				echo ">
 			  	<br><br>
-				<label for='userage'>user age:</label><input type='number'  name='userage' id='userage' ";
-					if($age_fiede){echo " class='req' ";};
+				<label for='userage'>תאריך לידה:</label><input type='date'  name='userage' id='userage' ";
+					if($age_fiede){echo " class='req' required ";};
 					echo "	><br><br>
-			<label for='parentname'>parent name:</label><input type='text'  name='parentname' id='parentname' ";
-			if($parent_fiede){echo " class='req' ";};
+			<label for='parentname'>שם הורה:</label>
+			<input type='text'  name='parentname' id='parentname' placeholder='שם הורה' ";
+			if($parent_fiede){echo " class='req' required ";};
 					echo "	><br><br>
-			<label for='parentid'>parent id:</label><input type='text'  name='parentid' id='parentid' ";
-			if($parentId_fiede){echo " class='req' ";};
+			<label for='parentid'>תעודת זהות הורה:</label>
+			<input type='text'  name='parentid' id='parentid' placeholder='תעודת זהות' ";
+			if($parentId_fiede){echo " class='req' required ";};
 					echo "	><br><br>
-			<label for='phone'>phone:</label><input type='tel'  name='phone' id='phone' ";
-			if($phone_fiede){echo " class='req' ";};
+			<label for='phone'>נייד:</label>
+			<input type='tel'  name='phone' id='phone' placeholder='טלפון' ";
+			if($phone_fiede){echo " class='req' required ";};
 					echo "	><br><br>
-						<label for='email'>email:</label><input type='email'  name='email' id='email' ";
-			if($userEmail_fiede){echo " class='req' ";};
+						<label for='email'>email:</label>
+						<input type='email'  name='email' id='email' placeholder='כתובת מייל' ";
+			if($userEmail_fiede){echo " class='req' required ";};
 					echo "	><br><br>
-						<label for='city'>city:</label><input type='text'  name='city' id='city' ";
-			if($city_fiede){echo " class='req' ";};
+						<label for='city'>city:</label>
+						<input type='text'  name='city' id='city'  placeholder='עיר' ";
+			if($city_fiede){echo " class='req' required ";};
 					echo "	><br><br>
-						<label for='street'>street:</label><input type='text'  name='street' id='street' ";
-			if($street_fiede){echo " class='req' ";};
+						<label for='street'>street:</label>
+						<input type='text'  name='street' id='street'  placeholder='רחוב' ";
+			if($street_fiede){echo " class='req' required ";};
 					echo "	><br><br>
-				<label for='apartment'>apartment:</label><input type='text'  name='apartment' id='apartment' ";
-			if($apartment_fiede){echo " class='req' ";};
+				<label for='apartment'>apartment:</label>
+				<input type='text'  name='apartment' id='apartment'  placeholder='דירה' ";
+			if($apartment_fiede){echo " class='req' required ";};
 					echo "	><br><br>
-				<label for='zipcode'>zipcode:</label><input type='text'  name='zipcode' id='zipcode'";
-			if($zipcode_fiede){echo " class='req' ";};
+				<label for='zipcode'>zipcode:</label>
+				<input type='text'  name='zipcode' id='zipcode'  placeholder='מיקוד' ";
+			if($zipcode_fiede){echo " class='req' required ";};
 					echo "	><br><br>
 						<input type='file' name='file' id='file'";
-			if($file_fiede){echo " class='req' ";};
+			if($file_fiede){echo " class='req' required ";};
 					echo "	><br><br>
 						<textarea rows='10' cols='42' name='message' id='message'";
-			if($message_field){echo " class='req' ";};
+			if($message_field){echo " class='req' required ";};
 					echo " >".
 						types_render_field('change_title', array("output"=>"text"))
 						."</textarea> 
 						<select name='filetype' id='filetype' title='file type'";
-			if($fileType_fiede){echo " class='req' ";};
+			if($fileType_fiede){echo " class='req' required ";};
 					echo "	>
 						<option value='img' selected='selected'>img</option>
 						<option value='video'>video</option>
@@ -131,7 +143,7 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 						types_render_field('checkbot_title', array("output"=>"html"))
 						
 						."</label><input type='checkbox' value='yes' name='agree' ";
-			if($agree){echo " class='req' ";};
+			if($agree){echo " class='req' required ";};
 					echo " ><br>
 <br>
 

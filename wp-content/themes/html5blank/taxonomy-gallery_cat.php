@@ -34,7 +34,7 @@
 							while ( $query->have_posts() ) {
 								$query->the_post();
 								?>
-							<?php echo get_post_meta($post->ID,'wpcf-user_firstname',true); ?><br>
+						<?php echo get_post_meta($post->ID,'wpcf-user_firstname',true); ?><br>
 							<?php echo get_post_meta($post->ID,'wpcf-user_lastname',true); ?><br>
 							<?php echo get_post_meta($post->ID,'wpcf-user_age',true); ?><br>
 							<?php echo get_post_meta($post->ID,'wpcf-user_parent',true); ?><br>
@@ -44,7 +44,7 @@
 							<?php echo get_post_meta($post->ID,'wpcf-street',true); ?><br>
 							<?php echo get_post_meta($post->ID,'wpcf-apartment',true); ?><br>
 							<?php echo get_post_meta($post->ID,'wpcf-zipcode',true); ?><br>
-							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img src="<?php attchImg($post->ID);?>"/></a><br>
+							<img src="<?php attchImg($post->ID);?>"/><br>
 <br>
 	
 						

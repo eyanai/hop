@@ -7,6 +7,65 @@ Author URI:
 Version: 1
 */
 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.cf:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+html[xmlns] .cf {
+	display: block;
+}
+ 
+* html .cf {
+	height: 1%;
+}
 @media screen {
 
 * { margin: 0; padding: 0; }
@@ -126,3 +185,115 @@ tr { page-break-inside: avoid; }
 a { text-decoration: none; color: black; }
 	
 } /* END print media */
+
+
+
+/*======================================================HOP STYLE============================================================*/
+.req {
+	border-color: red;
+	background-color: red;
+}
+.topheader {
+	background-color: #06F;
+	width: 100%;
+	height: 45px;
+}
+/*top headr menu=========================================+++++=======================+++++========================== */
+.topnav {
+	max-width: 1280px;
+	width: 95%;
+	margin: 0 auto;
+	position: relative;
+	background-color: #0CF;
+	border-bottom:solid 1px #fff;
+	height: 45px;
+}
+.topnav .search{
+	float:right;
+	margin:10px 0 0 0;
+}
+.topnav .search .search-submit{
+	display:none;
+}
+.top_menu_r li {
+	display: inline-block;
+	float: right;
+	margin: 15px 0 0 10px;
+	border-right: solid 1px #666666;
+	width: 60px;
+	text-align: center;
+}
+.top_menu_r li:nth-of-type(1) {
+	border: none;
+}
+.fixLInk {
+	margin-right: 34%;
+	margin-top:15px;
+	width: 187px;
+	float: right;
+}
+.fixLInk li {
+	display: inline-block;
+	width: 126px;
+	text-align: right;
+	float: right;
+	padding: 0 13px 0 0;
+}
+.fixLInk li:last-child {
+	border-right: solid 1px #666666;
+	width: 60px;
+}
+.top_menu_l{
+	float:left;
+	margin-top:5px;
+}
+.top_menu_l li{
+	display:inline-block;
+	float:right;
+	margin-left:10px;
+}
+.top_menu_l img{
+	width:30px;
+	height:30px;
+}
+.mutags_nav{
+	float:right;
+}
+.mutags_nav li,.mutags_nav a{
+	display:block;
+	float:right;
+}
+.nav_menu li{
+	display:inline-block;
+}
+/*======================footer css================+++++==========================++++*/
+.infoBox{
+	clear:both;
+}
+.info{
+	float:right;
+	width:250px;
+	height:150px;
+	border:solid 1px #00FFCC;
+	
+}
+.info img{
+	width:50px;
+	height:50px;
+	float:right;
+}
+.info h2{
+	text-align:center;
+	font-weight:bold;
+	font-size:1.1em;
+}
+.info p{
+	float:right;
+}
+.top_menu_r.small{
+	font-size:0.8em;	
+}
+.wrapper{
+	margin:0 auto;
+	width:920px;
+}

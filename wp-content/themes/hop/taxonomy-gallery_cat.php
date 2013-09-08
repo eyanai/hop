@@ -2,27 +2,30 @@
 	
 		<section role="main" style="direction:rtl;">
 	<?php $img=wp_get_attachment_image(61);
-			echo $img;
+			//echo $img;
 	?>
 	
 	
-	
-		<h1><?php _e( 'Latest Posts', 'html5blank' ); ?></h1>
 		
 		
-		
+		<?php 
+		$catid=get_query_var( 'gallery_cat' );
+	?>
 		
 		
 		<?php //wp_multi_file_uploader(allowed_mime_types); ?>
 		
 						<?php
+						
+						$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
 							$args = array(
 							'post_type' => 'user-gallery',
 							'tax_query' => array(
 								array(
 									'taxonomy' => 'gallery_cat',
 									'field' => 'slug',
-									'terms' => $_GET['gallery_cat']
+									'terms' => $catid
 								)
 							)
 						);
@@ -31,26 +34,32 @@
 						
 						// The Loop
 						if ( $query->have_posts() ) {
-							while ( $query->have_posts() ) {
+							echo "<ul>";
+							while ( $query->have_posts() ):
 								$query->the_post();
 								?>
-							<?php echo get_post_meta($post->ID,'wpcf-user_firstname',true); ?><br>
-							<?php echo get_post_meta($post->ID,'wpcf-user_lastname',true); ?><br>
-							<?php echo get_post_meta($post->ID,'wpcf-user_age',true); ?><br>
-							<?php echo get_post_meta($post->ID,'wpcf-user_parent',true); ?><br>
-							<?php echo get_post_meta($post->ID,'wpcf-parent_phone',true); ?><br>
-							<?php echo get_post_meta($post->ID,'wpcf-parent_email',true); ?><br>
-							<?php echo get_post_meta($post->ID,'wpcf-city',true); ?><br>
+							<li><?php echo "name: ". get_post_meta($post->ID,'wpcf-user_firstname',true); ?><br>
+							<?php echo "last: ".get_post_meta($post->ID,'wpcf-user_lastname',true); ?><br>
+							<?php echo "age: ".get_post_meta($post->ID,'wpcf-user_age',true); ?><br>
+							<?php echo "perant: ".get_post_meta($post->ID,'wpcf-user_parent',true); ?><br>
+							<?php echo "phone: ".get_post_meta($post->ID,'wpcf-parent_phone',true); ?><br>
+							<?php echo "email: ".get_post_meta($post->ID,'wpcf-parent_email',true); ?><br>
+							<?php echo "city: ".get_post_meta($post->ID,'wpcf-city',true); ?><br>
 							<?php echo get_post_meta($post->ID,'wpcf-street',true); ?><br>
 							<?php echo get_post_meta($post->ID,'wpcf-apartment',true); ?><br>
 							<?php echo get_post_meta($post->ID,'wpcf-zipcode',true); ?><br>
-							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img src="<?php attchImg($post->ID);?>"/></a><br>
-<br>
+							<?php  $meta = get_post_meta($post->ID,'wpcf-user_img',true);
+								//	echo $meta;
+							?>
+							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img src="<?php echo $meta;?>"/></a><br>
+</li>
 	
 						
-						<?php $terms = get_the_terms($post->ID, 'gallery_cat');
-							  if ( $terms && ! is_wp_error( $terms ) ) : 
-
+						
+						<?php //$terms = get_the_terms($post->ID, 'gallery_cat');
+						
+							  /*if ( $terms && !is_wp_error( $terms ) ) : 
+								
 										$draught_links = array();
 									
 										foreach ( $terms as $term ) {
@@ -97,14 +106,14 @@
 											
 										}
 															
-										$on_draught = join( ", ", $draught_links );
+										$on_draught = join( ", ", $draught_links );*/
 									?>
 									
-									<p class="beers draught">
+									<?php /*?><p class="beers draught">
 										On draught: <span><?php echo $on_draught; ?></span>
-									</p>
+									</p><?php */?>
 									
-									<?php endif; ?>
+									<?php //endif; ?>
 					
 						<?php 
 							//echo " : ".the_field('gallery_show','gallery_cat_4')."<br>";
@@ -115,13 +124,19 @@
 						<hr>	
 						
 						<?php
-							}
+							
+						endwhile;
+						echo "</ul>";
 						} else {
 							// no posts found
 						}
 						/* Restore original Post Data */
 						wp_reset_postdata();
+						
+						
 					?>
+					
+					
 					
 						<?php /*?><?php $args = array(
 								'posts_per_page'  => 5,
@@ -183,7 +198,8 @@
 		<?php //get_template_part('loop'); ?>
 		
 		<?php //get_template_part('pagination'); ?>
-	
+					<?php next_posts_link(); ?>
+					<?php previous_posts_link(); ?>
 	</section>
-
+	
 <?php get_footer(); ?>
