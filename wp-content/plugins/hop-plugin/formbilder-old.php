@@ -71,67 +71,62 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 				
 		echo    "
 						<br>
-				<h2>הילד</h2>
+			
+				<label for='username'>שם משתמש:</label>
 				<input type='text' name='username' id='username' placeholder='שם פרטי' ";
 				if($userName_fiede){echo " class='req' required ";};
 				echo ">
-			
+				<label for='userlastname'>שם משפחה:</label>
 				<input type='text' name='userlastname' id='userlastname' placeholder='שם משפחה' ";
 				if($userLastNmae__fiede){echo " class='req' required ";};
 				echo">
-			
+				<label for='userSchool'>בית ספר:</label>
 				<input type='text' name='userSchool' id='userSchool' placeholder='שם גן ילדים/ בי\"ס' ";
 				if($school_field){echo " class='req' required ";};
 				echo ">
-			
-			
+				<label for='userCalss'>כיתה:</label>
+				<input type='text' name='userCalss' id='userCalss'  ";
+				if($userClass_field){echo " class='req' required ";};
+				echo ">
+			  	<br><br>
 				<label for='userage'>תאריך לידה:</label><input type='date'  name='userage' id='userage' ";
 					if($age_fiede){echo " class='req' required ";};
 					echo "	><br><br>
-					
-				<h2>ההורה</h2>
+			<label for='parentname'>שם הורה:</label>
 			<input type='text'  name='parentname' id='parentname' placeholder='שם הורה' ";
 			if($parent_fiede){echo " class='req' required ";};
-					echo "	>
-						
-					 
-			
-			<input type='text'  name='parentid' id='parentid' pattern='[0-9]{9}' placeholder='תעודת זהות' ";
+					echo "	><br><br>
+			<label for='parentid'>תעודת זהות הורה:</label>
+			<input type='text'  name='parentid' id='parentid' placeholder='תעודת זהות' ";
 			if($parentId_fiede){echo " class='req' required ";};
-					echo "	>
-					<input type='checkbox' required><span class='iam'>אני ההורה</span>
-			 
-			
-					
-						<input type='text'  name='street' id='street'  placeholder='רחוב' ";
-			if($street_fiede){echo " class='req' required ";};
-					echo "	>
-				
-				<input type='text'  name='apartment' id='apartment'  placeholder='דירה' ";
-			if($apartment_fiede){echo " class='req' required ";};
-					echo "	>
-				
-				<input type='text'  name='city' id='city'  placeholder='עיר' ";
-			if($city_fiede){echo " class='req' required ";};
-					echo "	>
-					
-				<input type='text'  name='zipcode' id='zipcode'  placeholder='מיקוד' ";
-			if($zipcode_fiede){echo " class='req' required ";};
-					echo "	> 
-					
-			
+					echo "	><br><br>
+			<label for='phone'>נייד:</label>
 			<input type='tel'  name='phone' id='phone' placeholder='טלפון' ";
 			if($phone_fiede){echo " class='req' required ";};
-					echo "	>
-						
+					echo "	><br><br>
+						<label for='email'>email:</label>
 						<input type='email'  name='email' id='email' placeholder='כתובת מייל' ";
 			if($userEmail_fiede){echo " class='req' required ";};
-					echo "	>
-			
-			
+					echo "	><br><br>
+						<label for='city'>city:</label>
+						<input type='text'  name='city' id='city'  placeholder='עיר' ";
+			if($city_fiede){echo " class='req' required ";};
+					echo "	><br><br>
+						<label for='street'>street:</label>
+						<input type='text'  name='street' id='street'  placeholder='רחוב' ";
+			if($street_fiede){echo " class='req' required ";};
+					echo "	><br><br>
+				<label for='apartment'>apartment:</label>
+				<input type='text'  name='apartment' id='apartment'  placeholder='דירה' ";
+			if($apartment_fiede){echo " class='req' required ";};
+					echo "	><br><br>
+				<label for='zipcode'>zipcode:</label>
+				<input type='text'  name='zipcode' id='zipcode'  placeholder='מיקוד' ";
+			if($zipcode_fiede){echo " class='req' required ";};
+					echo "	><br><br>
 						<input type='file' name='file' id='file'";
 			if($file_fiede){echo " class='req' required ";};
-					echo "	> 
+					echo "	><br><br>
 						<textarea rows='10' cols='42' name='message' id='message'";
 			if($message_field){echo " class='req' required ";};
 					echo " >".
@@ -142,14 +137,15 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 					echo "	>
 						<option value='img' selected='selected'>img</option>
 						<option value='video'>video</option>
-						</select>
-						<input type='checkbox' required><span class='tarmUse'>אני מסכים לתנאי השימוש</span>
+						</select><br>
+<br>
 						<label for='agree'>".
 						types_render_field('checkbot_title', array("output"=>"html"))
 						
 						."</label><input type='checkbox' value='yes' name='agree' ";
 			if($agree){echo " class='req' required ";};
-					echo " >
+					echo " ><br>
+<br>
 
 						<input type='submit' name='userSubmit' id='galSubmit'>
 			
