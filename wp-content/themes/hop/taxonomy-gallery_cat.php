@@ -142,8 +142,60 @@
 	<section class="searchGallery">
 		<div class="soreng">
 			<div class="searchInput">
-				<input type="text" class="inputGall">
+				<input type="text" class="inputGall" placeholder="חיפוש לפי שם">
 				<span class="magnefier"></span>
+				<div id="searchHE" class="searchLANG">
+					<span class="letter">א</span>
+					<span class="letter">ב</span>
+					<span class="letter">ג</span>
+					<span class="letter">ד</span>
+					<span class="letter">ה</span>
+					<span class="letter">ו</span>
+					<span class="letter">ז</span>
+					<span class="letter">ח</span>
+					<span class="letter">ט</span>
+					<span class="letter">י</span>
+					<span class="letter">כ</span>
+					<span class="letter">ל</span>
+					<span class="letter">מ</span>
+					<span class="letter">נ</span>
+					<span class="letter">ס</span>
+					<span class="letter">ע</span>
+					<span class="letter">פ</span>
+					<span class="letter">צ</span>
+					<span class="letter">ק</span>
+					<span class="letter">ר</span>
+					<span class="letter">ש</span>
+					<span class="letter">ת</span>
+				</div>
+				<!--<div id="searchEN" class="searchLANG">
+					<span class="letter">A</span>
+					<span class="letter">B</span>
+					<span class="letter">C</span>
+					<span class="letter"id="circuleFind">D</span>
+					<span class="letter">E</span>
+					<span class="letter">F</span>
+					<span class="letter">G</span>
+					<span class="letter">H</span>
+					<span class="letter">I</span>
+					<span class="letter">J</span>
+					<span class="letter">K</span>
+					<span class="letter">L</span>
+					<span class="letter">M</span>
+					<span class="letter">N</span>
+					<span class="letter">O</span>
+					<span class="letter">P</span>
+					<span class="letter">Q</span>
+					<span class="letter">R</span>
+					<span class="letter">S</span>
+					<span class="letter">T</span>
+					<span class="letter">U</span>
+					<span class="letter">V</span>
+					<span class="letter">W</span>
+					<span class="letter">X</span>
+					<span class="letter">Y</span>
+					<span class="letter">Z</span>
+				</div>-->
 			</div>
 		</div>
 		<span class="showAll">הצג הכל</span>

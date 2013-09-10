@@ -373,20 +373,20 @@ a { text-decoration: none; color: black; }
 	 top: 150px; 
 }
 .right-triangle {
-   width: 0;
-   height: 0;
-   border-left: 33px solid #2f8199;
-   border-top: 18px solid transparent;
-   border-bottom: 18px solid transparent;
-   margin: 8px 4px 0 0;
+  width: 0;
+height: 0;
+border-left: 20px solid #2f8199;
+border-top: 17px solid transparent;
+border-bottom: 17px solid transparent;
+margin: 8px 11px 0 0;
 }
 .left-triangle {
    width: 0;
    height: 0;
-   border-right: 33px solid #2f8199;
-   border-top: 18px solid transparent;
-   border-bottom: 18px solid transparent;
-   margin: 8px 12px 0 0px;
+   border-right: 20px solid #2f8199;
+   border-top: 17px solid transparent;
+   border-bottom: 17px solid transparent;
+   margin: 8px 11px 0 0px;
 }
 .writer {
 position: relative;
@@ -616,8 +616,10 @@ border-radius: 25px;
 .searchInput{}
 .inputGall{
     position: absolute;
-    top: 6px;
     right: 31px;
+}
+.inputGall, .searchLANG{
+	margin-top: 6px;
     height: 23px;
 }
 .magnefier{
@@ -631,6 +633,51 @@ border-radius: 25px;
 	right: 3px;
 	cursor: pointer;
 }
+.searchLANG{
+	width: 480px;
+float: left;
+margin-left: 12px;
+text-align: center;
+vertical-align: middle;
+}
+#searchHE{
+	direction:rtl;
+}
+#searchEN{
+	direction:ltr;
+}
+#searchAR{
+	direction:rtl;
+	display:none;
+}
+.letter {
+	vertical-align: middle;
+	display: inline-block;
+}
+#searchHE .letter, #searchHE .letter:hover {
+	width: 3.7%;
+	font-size: 1.4em;
+	font-weight: bold;
+	height:21px;  /* =width */
+}
+#searchEN .letter{
+	width: 3%;
+	font-size: 1.2em;
+}
+.letter:hover {
+	color:white;
+	/* background-color: #347F93;
+	border-radius: 18px; */
+}
+#circuleFind {
+	  width: 21px;
+/* float: right; */
+position: relative;
+height: 21px;
+background-color: #347F93;
+border-radius: 18px; 
+}
+
 .showAll{
 	position:absolute;
 	width:90px;
