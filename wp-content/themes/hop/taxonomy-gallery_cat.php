@@ -122,15 +122,15 @@
 						$counter=0;	
 						// The Loop
 						if ( $query->have_posts() ) {
-							echo "<ul class='cat_gallery'> <div class='bigImgCon'>";
+							echo "<ul class='cat_gallery'> <div class='bigImgCon cf'>";
 							while ( $query->have_posts() ):
 								$query->the_post();
 								?>
 								
 								
 							
-							<?php if($counter==0) echo "<div class='conGall'>";?>
-							<?php $counter=$counter<6?++$counter :0; ?>	
+							<?php //if($counter==0) echo "<div class='conGall'>";?>
+							<?php //$counter=$counter<6?++$counter :0; ?>	
 							<li>
 							
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
@@ -152,14 +152,14 @@
 							</a>
 							
 							</li>
-							<?php if($counter==6) {echo "</div>";$counter=0;}?>
+							<?php // if($counter==6) {echo "</div>";$counter=0;}?>
 						<?php
 						
 						
 						endwhile;
-						 if($counter!=6){ echo "</div>"; $counter=0;};
+						// if($counter!=6){ echo "</div>"; $counter=0;};
 						 
-						echo "</div></ul>";
+						echo "</div></ul>"; 
 						} else {
 							// no posts found
 						}

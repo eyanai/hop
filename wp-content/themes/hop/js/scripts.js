@@ -34,6 +34,7 @@ $('.mutagSlider li').hover(function(e){
 		
 		
 ///////////////gallery-big one
+
 		wFixGall();
 		$('.nextGall').on('click',this,function(){
 			nextGall();
@@ -49,6 +50,9 @@ $('.mutagSlider li').hover(function(e){
 		window.history.back();
 	
 	});
+	
+	
+	latterS();
 
 });///////dom ready
 
@@ -101,9 +105,13 @@ function prePost(id){
 }
 ///////////////gallery func
 function wFixGall(){
-	w=$('.conGall').length;
+	w=Math.ceil( $('.bigImgCon li').length/6);
 	W=w*790;
-	$('.bigImgCon').css({'width':W+'px'});
+	if(W<790){
+		$('.bigImgCon').css({'width':'790px'});
+	}else{
+		$('.bigImgCon').css({'width':W+'px'});
+	}
 	$('.bigImgCon').attr('location',0);
 	if(W<=790){
 		$('.circule.right.gallery').hide();
@@ -113,40 +121,70 @@ function wFixGall(){
 	}
 }
 
+function wFixGallS(){
+	w=Math.round($('.bigImgCon li.show').length/6);
+	W=w*790;
+	if(W<790){
+		$('.bigImgCon').css({'width':'790px'});
+	}else{
+		$('.bigImgCon').css({'width':W+'px'});
+	}
+	$('.bigImgCon').attr('location',0);
+	if(W<=790){
+		$('.circule.right.gallery').hide();
+		$('.circule.left.gallery').hide();
+	}else{
+		$('.circule.right.gallery').show();
+	}
+}
+
 function nextGall(){
-	w=$('.conGall').length*790;
-	
-	loc=$('.conGall').offset().left;
+	if($('.bigImgCon li').hasClass('show')){
+		local=Math.ceil($('.bigImgCon li.show').length/6);
+	}else{
+		local=Math.ceil( $('.bigImgCon li').length/6);
+	}
 	pos=$('.bigImgCon').attr('location');
+	loc=$('.bigImgCon').offset().left;
 	
 	total=loc+790;
 	//alert(loc);
 	parseInt(pos);
-	if(total<w){
-		$('.circule.left.gallery').hide();
+	if((pos+1)!=0){
+		$('.circule.left.gallery').show();
+	}
+	
+	if(pos<local){
 		pos++;
 		$('.bigImgCon').attr('location',pos);
 		gotoleft=pos*790;
 		$('.bigImgCon').css('left',gotoleft+'px');
-		$('.circule.left.gallery').show();
-		if(w-total<790){
-			$('.circule.right.gallery').hide();
-		}
+		
+			if(pos==(local-1)){
+				$('.circule.right.gallery').hide();
+			}
+		
+	}else{
+		$('.circule.left.gallery').hide();
 	}	
 	
 }
 
 
 function backGall(){
-	w=$('.conGall').length*790;
+	if($('.bigImgCon li').hasClass('show')){
+		local=Math.ceil($('.bigImgCon li.show').length/6);
+	}else{
+		local=Math.ceil( $('.bigImgCon li').length/6);
+	}
 	
-	loc=$('.conGall').offset().left;
 	pos=$('.bigImgCon').attr('location');
+	loc=$('.bigImgCon').offset().left;
 	
 	total=loc+790;
 	//alert(loc);
 	parseInt(pos);
-	if(loc>790){
+	if(pos<=local){
 		$('.circule.right.gallery').show();
 		pos--;
 		$('.bigImgCon').attr('location',pos);
@@ -161,5 +199,53 @@ function backGall(){
 		$('.circule.left.gallery').hide();
 	}	
 	
+}
+
+function latterS(){
+	$('.letter').on('click',this,function(){
+		$('.letter').removeClass('active');
+		$(this).addClass('active');
+	});
+	
+	$(this).parents('.bigImgCon li').removeClass();
+	
+	$('.magnefier,.letter').on('click',this,function(e){
+		if(e.target.className.indexOf('letter')!=-1){
+			value=$(this).text();
+		}else{
+			value=$('.inputGall').val();
+		}
 		
+		
+		if(value==''){
+			return;
+		}else{
+			$('.mainNeme').each(function(index, element) {
+				cVal=$(this).text();
+				
+				if(cVal.indexOf(value) !=-1){
+					$(this).show();
+					$(this).parents('li').show().addClass('show');
+					$('.bigImgCon').css('left','0px');
+					
+				}else{
+					$(this).parents('li').hide().addClass('hide');
+					
+				}
+			wFixGallS();
+			});
+		}
+		
+		if($('.bigImgCon li.show()').length>6){
+			$('.circule.right.gallery').show();
+		}else{
+			resetS();
+		}
+	});
+}
+
+function resetS(){
+	
+	$('.circule.right.gallery').hide();
+	$('.circule.left.gallery').hide();
 }

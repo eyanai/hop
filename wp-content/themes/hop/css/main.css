@@ -1,0 +1,6 @@
+/* CSS Document */
+.letter.active{
+	background: #2f8199;
+	border-radius: 15px;
+	color: #fff;
+}
