@@ -198,6 +198,11 @@ a { text-decoration: none; color: black; }
 	width: 100%;
 	height: 45px;
 }
+#galId h2{
+	font-size:1.2em;
+	
+}
+
 /*top headr menu=========================================+++++=======================+++++========================== */
 .topnav {
 	max-width: 1280px;

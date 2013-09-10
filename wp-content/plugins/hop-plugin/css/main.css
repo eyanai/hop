@@ -28,11 +28,18 @@
 	box-align:center;
 }
 fieldset{
-	border-radius:10px;
-	-webkit-box-shadow:#06C 0px 2px 3px 3px;
-	box-shadow:#06C 0px 2px 3px 3px;
+	fieldset {
+border-radius: 10px;
+background-color: #5FC4D6;
+width: 60%;
+float: left;
+border: 3px solid white;
+margin-left:120px;
+	/* -webkit-box-shadow:#06C 0px 2px 3px 3px;
+	box-shadow:#06C 0px 2px 3px 3px; */
 }
 legend{
+	display:none;
 	font-size:1.3em;
 	background-color:rgba(0,204,255,1);
 	border-radius:3px;
