@@ -21,7 +21,8 @@
 			wp_enqueue_script('hopScript'); // Enqueue it!
 			
 			do_action('wp_enqueue_scripts');
-		
+			
+			wp_enqueue_style( 'style-back',get_template_directory_uri()."/css/main.css" );
 		}
 	
 	
