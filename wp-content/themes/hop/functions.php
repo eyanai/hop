@@ -133,7 +133,12 @@ function nextPost($id){
 	$id=$_POST['id'];
 	$nextId=get_next_post_id($id);
 	$meta = get_post_meta($nextId,'wpcf-user_img',true);
-	$arg=array('src'=>$meta,'postid'=>$nextId);
+	//$name = get_post_meta($nextId,'wpcf-user_firstname',true);
+	//$lastname=get_post_meta($nextId,'wpcf-user_lastname',true);
+	$name=get_the_title($nextId);
+	$city = get_post_meta($nextId,'wpcf-city',true);
+	
+	$arg=array('src'=>$meta,'postid'=>$nextId,'writer'=>$name. " - ".$city);
 	echo json_encode($arg);
 	die();
 }
@@ -142,7 +147,12 @@ function prePost($id){
 	$id=$_POST['id'];
 	$preId=get_previous_post_id($id);
 	$meta = get_post_meta($preId,'wpcf-user_img',true);
-	$arg=array('src'=>$meta,'postid'=>$preId);
+	//$name = get_post_meta($preId,'wpcf-user_firstname',true);
+	//$lastname=get_post_meta($preId,'wpcf-user_lastname',true);
+	$name=get_the_title($preId);
+	$city = get_post_meta($preId,'wpcf-city',true);
+	
+	$arg=array('src'=>$meta,'postid'=>$preId,'writer'=>$name. " - ".$city);
 	echo json_encode($arg);
 	die();
 }

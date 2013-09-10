@@ -1,9 +1,14 @@
 <?php get_header(); ?>
-<?php	galley_form(); ?>
+
 	<?php 
 	?>
 	<!-- section -->
+	<section class="singeltopheader gallAll">
+		
+	</section>
 	<section role="main">
+
+			<?php	galley_form(); ?>
 		<h1><?php _e( 'Latest Posts', 'html5blank' ); ?></h1>
 		
 		

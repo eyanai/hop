@@ -1,4 +1,11 @@
-		<footer id="footer">
+		<footer id="footer"  
+			<?php if(is_single()|| is_taxonomy('gallery_cat')) echo " class='grassfooter'";?>	
+		>
+			<?php  if(is_single()|| is_taxonomy('gallery_cat')):?>
+					<div class="grass">
+					</div>
+				<?php endif;?>
+		
 		<?php /*?><nav class="lowmanu">
 				<?php $defaults = array(
 					'menu'            => 'תפריט תחתון',

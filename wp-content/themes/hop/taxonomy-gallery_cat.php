@@ -1,20 +1,78 @@
 <?php /* Template Name: גלריית משתמש */ get_header(); ?>
 	
-		<section role="main" style="direction:rtl;">
-	<?php $img=wp_get_attachment_image(61);
-			//echo $img;
-	?>
-	
-	
+<section class="singeltopheader gallAll">
+		<div class="socialSingel">
+		<a href="#" class="facebookShare"><span class="letterImg"></span> שלח לחבר</a>
+		<a class="facebookShare" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;">
+		<span class="faceImg"></span> שתף בפייסבוק
+		</a>
+		</div>
+	</section>
+	<section class="topcatdetail cf">
+	<?php 
+			$terms = get_the_terms($post->ID, 'gallery_cat');
+			foreach ( $terms as $term ) {
+			$catname=$term->name;
+			}
+			$post_type = 'forms';
+			$tax = 'gallery_cat';
+			$tax_terms = get_terms($tax);
+			if ($tax_terms) {
+			  foreach ($tax_terms  as $tax_term) {
+				$args=array(
+				  'post_type' => $post_type,
+				  "$tax" => $tax_term->slug,
+				  'post_status' => 'publish',
+				  'posts_per_page' => -1,
+				  'caller_get_posts'=> 1
+				);
+			
+				$my_query = null;
+				$my_query = new WP_Query($args);
+				if( $my_query->have_posts() ) {
+								 
+				  if($tax_term->name==$catname):
+				  while ($my_query->have_posts()) : $my_query->the_post(); ?>
+					<?php $formlink=get_permalink() ?>
+					<?php
+				  endwhile;
+				  endif;
+				}
+				wp_reset_query();
+			  }
+			}
+?>
+		<div class="catDescrip">
+			
+			<?php
+			$terms = get_the_terms($post->ID, 'gallery_cat');
+			foreach ( $terms as $term ) {
+			echo "<h1 class='catH1'>".$term->name."</h1>";
+			?>
+			
+			<a href="<?php echo $formlink;?>" class="formlinkgall">להוספת תמונה</a>
+			<?php
+			$term->term_id;
+				//echo  get_field('img_icon','gallery_cat_'.$term->term_id);
+				echo "<div class='textDescript'>".the_field('gallry_description','gallery_cat_'.$term->term_id)."</div>";
+				$a=get_field('img_icon','gallery_cat_'.$term->term_id);
+				
+				?>
+				
+				</div>
+				 <img src="<?php echo $a['url'];?>" class="imgcat">
+			<?php	
+				
+			}
+		?>
 		
-		
+	</section>	
+<section role="main" class="gallery_main_singel">
+		<div class="circule right gallery"><div class="nextGall right-triangle"></div></div>
+		<div class="circule left gallery"><div class="previousGall left-triangle"></div></div>
 		<?php 
-		$catid=get_query_var( 'gallery_cat' );
-	?>
-		
-		
-		<?php //wp_multi_file_uploader(allowed_mime_types); ?>
-		
+			$catid=get_query_var( 'gallery_cat' );
+		?>
 						<?php
 						
 						$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -31,102 +89,43 @@
 						);
 						// The Query
 						$query = new WP_Query( $args );
-						
+						$counter=0;	
 						// The Loop
 						if ( $query->have_posts() ) {
-							echo "<ul>";
+							echo "<ul class='cat_gallery'> <div class='bigImgCon'>";
 							while ( $query->have_posts() ):
 								$query->the_post();
 								?>
-							<li><?php echo "name: ". get_post_meta($post->ID,'wpcf-user_firstname',true); ?><br>
-							<?php echo "last: ".get_post_meta($post->ID,'wpcf-user_lastname',true); ?><br>
-							<?php echo "age: ".get_post_meta($post->ID,'wpcf-user_age',true); ?><br>
-							<?php echo "perant: ".get_post_meta($post->ID,'wpcf-user_parent',true); ?><br>
-							<?php echo "phone: ".get_post_meta($post->ID,'wpcf-parent_phone',true); ?><br>
-							<?php echo "email: ".get_post_meta($post->ID,'wpcf-parent_email',true); ?><br>
-							<?php echo "city: ".get_post_meta($post->ID,'wpcf-city',true); ?><br>
-							<?php echo get_post_meta($post->ID,'wpcf-street',true); ?><br>
-							<?php echo get_post_meta($post->ID,'wpcf-apartment',true); ?><br>
-							<?php echo get_post_meta($post->ID,'wpcf-zipcode',true); ?><br>
-							<?php  $meta = get_post_meta($post->ID,'wpcf-user_img',true);
-								//	echo $meta;
-							?>
-							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img src="<?php echo $meta;?>"/></a><br>
-</li>
-	
-						
-						
-						<?php //$terms = get_the_terms($post->ID, 'gallery_cat');
-						
-							  /*if ( $terms && !is_wp_error( $terms ) ) : 
 								
-										$draught_links = array();
-									
-										foreach ( $terms as $term ) {
-											$term->term_id;
-											//echo " : ".the_field('gallery_show','gallery_cat_'.$term->term_id)."<br>";
-											//echo "---> : ".the_field('gall_regulations','gallery_cat_'.$term->term_id)."<br>";
-											$main=get_field('main_hl','gallery_cat_'.$term->term_id);
-											switch ($main) {
-												case "גיל":
-													echo get_post_meta($post->ID,'wpcf-user_age',true)."<br>";
-													break;
-												case "שם הילד":
-													echo get_post_meta($post->ID,'wpcf-user_firstname',true)."<br>";
-													break;
-												case "בית ספר":
-													echo get_post_meta($post->ID,'wpcf-school',true)."<br>";
-													break;
-												case "שם משפחה":
-													echo get_post_meta($post->ID,'wpcf-user_lastname',true)."<br>";
-													break;
-												default:
-      											 echo "לא ניצן להצגה כרגע";
-												
-											}
-											
-											$main=get_field('sub_hl','gallery_cat_'.$term->term_id);
-											switch ($main) {
-												case "גיל":
-													echo get_post_meta($post->ID,'wpcf-user_age',true);;
-													break;
-												case "שם הילד":
-													echo get_post_meta($post->ID,'wpcf-user_firstname',true);
-													break;
-												case "בית ספר":
-													echo get_post_meta($post->ID,'wpcf-school',true);
-													break;
-												case "שם משפחה":
-													echo get_post_meta($post->ID,'wpcf-user_lastname',true);
-													break;
-												default:
-      											 echo "לא ניצן להצגה כרגע";
-												
-											}
-											
-										}
-															
-										$on_draught = join( ", ", $draught_links );*/
-									?>
-									
-									<?php /*?><p class="beers draught">
-										On draught: <span><?php echo $on_draught; ?></span>
-									</p><?php */?>
-									
-									<?php //endif; ?>
-					
-						<?php 
-							//echo " : ".the_field('gallery_show','gallery_cat_4')."<br>";
-//							echo "---> : ".the_field('gall_regulations','gallery_cat_4')."<br>";
-//							echo "---> : ".the_field('main_hl','gallery_cat_4');
-						
-						?>
-						<hr>	
-						
-						<?php
+								
 							
+							<?php if($counter==0) echo "<div class='conGall'>";?>
+							<?php $counter=$counter<6?++$counter :0; ?>	
+							<li>
+							
+						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+							<?php  $meta = get_post_meta($post->ID,'wpcf-user_img',true);?>
+								<img src="<?php echo $meta;?>" class="mainGallImg"/>
+							<span class="subtitle">
+							<?php 	
+									$name = get_post_meta($post->ID,'wpcf-user_firstname',true);
+									$city = get_post_meta($post->ID,'wpcf-city',true);
+				
+									echo  get_the_title($post->ID). " <br> ".$city;
+									
+							?>
+							</span>
+							</a>
+							
+							</li>
+							<?php if($counter==6) {echo "</div>";$counter=0;}?>
+						<?php
+						
+						
 						endwhile;
-						echo "</ul>";
+						 if($counter!=6){ echo "</div>"; $counter=0;};
+						 
+						echo "</div></ul>";
 						} else {
 							// no posts found
 						}
@@ -138,68 +137,22 @@
 					
 					
 					
-						<?php /*?><?php $args = array(
-								'posts_per_page'  => 5,
-								'offset'          => 0,
-								'galery_cat'        => 'mesek',
-								'orderby'         => '',
-								'order'           => 'DESC',
-								'include'         => '',
-								'exclude'         => '',
-								'meta_key'        => '',
-								'meta_value'      => '',
-								'post_type'       => 'user-gallery',
-								'post_mime_type'  => '',
-								'post_parent'     => '',
-								'post_status'     => 'publish',
-								'suppress_filters' => true ); 		
-				
-					$myposts = get_posts( $args );
-						foreach( $myposts as $post ) : setup_postdata($post); ?>
-							<pre style='direction:ltr'><?php echo print_r($post,1);?></pre>
-							<?php echo get_post_meta($post->ID,'wpcf-user_firstname',true); ?><br>
-							<?php echo get_post_meta($post->ID,'wpcf-user_lastname',true); ?><br>
-							<?php echo get_post_meta($post->ID,'wpcf-user_age',true); ?><br>
-							<?php echo get_post_meta($post->ID,'wpcf-user_parent',true); ?><br>
-							<?php echo get_post_meta($post->ID,'wpcf-parent_phone',true); ?><br>
-							<?php echo get_post_meta($post->ID,'wpcf-parent_email',true); ?><br>
-							<?php echo get_post_meta($post->ID,'wpcf-city',true); ?><br>
-							<?php echo get_post_meta($post->ID,'wpcf-street',true); ?><br>
-							<?php echo get_post_meta($post->ID,'wpcf-apartment',true); ?><br>
-							<?php echo get_post_meta($post->ID,'wpcf-zipcode',true); ?><br>
-							<img src="<?php attchImg($post->ID);?>"/><hr>
- 						<?php endforeach; ?><?php */?>
-				
-				<?php 
-				//get category
-				$args = array(
-					//'type'                     => 'post',
-					'child_of'                 => 0,
-					'parent'                   => '',
-					'orderby'                  => 'name',
-					'order'                    => 'ASC',
-					//'hide_empty'               => 1,
-					//'hierarchical'             => 1,
-					'exclude'                  => '',
-					'include'                  => '',
-					'number'                   => '',
-					'taxonomy'                 => 'gallery_cat',
-					'pad_counts'               => false );
-					
-					
-										
-					?>
-				
-					
-		
-		
-		<p><?php //echo the_field('gallery_show'); ?></p>
-	
-		<?php //get_template_part('loop'); ?>
-		
-		<?php //get_template_part('pagination'); ?>
-					<?php next_posts_link(); ?>
-					<?php previous_posts_link(); ?>
 	</section>
 	
+	<section class="searchGallery">
+		<div class="soreng">
+			<div class="searchInput">
+				<input type="text" class="inputGall">
+				<span class="magnefier"></span>
+			</div>
+		</div>
+		<span class="showAll">הצג הכל</span>
+	</section>
+	<section class="lang">
+		<span class="heb"></span>
+		<span class="eng"></span>
+		<span class="arb"></span>
+		
+		<a href="#" class="standart">לתקנון</a>
+	</section>
 <?php get_footer(); ?>

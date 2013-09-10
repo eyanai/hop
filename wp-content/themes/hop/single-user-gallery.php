@@ -1,20 +1,42 @@
 <?php get_header(); ?>
 
 <!-- section -->
-
-<section role="main">
-	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
-	<h1>
-		<?php the_title();;?>
-	</h1>
-	<pre style='direction:ltr'>
-							<?php //echo print_r($post,1);?>
-</pre>
-	<?php $meta = get_post_meta($post->ID,'wpcf-user_img',true);
-								//	echo "ppp: ".$meta;
-							 ?>
+<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+<?php 
+	$terms = get_the_terms($post->ID, 'gallery_cat');
+	foreach($terms as $title){
+		$titleCat=$title->name;
+	}
+	?>
+	<?php $meta = get_post_meta($post->ID,'wpcf-user_img',true); ?>
+	<section class="singeltopheader">
+		<a href="#" class="backSingel"><span class="backArrow"></span>חזור</a>
+		<h1 class="singelCat"><?php echo $titleCat?></h1>
+	
+		<div class="socialSingel">
+		<a href="#" class="facebookShare"><span class="letterImg"></span> שלח לחבר</a>
+		<a class="facebookShare" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;">
+		<span class="faceImg"></span> שתף בפייסבוק
+		</a>
+		</div>
+	</section>
+<section role="main" class="gallery_main_singel">
+	
 	<div class="imgSingelPostCon" cId="<?php the_ID(); ?>">						 
-	<img src="<?php echo $meta;?>" id="imgSolo">
+				<img src="<?php echo $meta;?>" id="imgSolo" class="singelImg">
+		<div class="circule right"><div class="nextSingel right-triangle"></div></div>
+		<div class="circule left"><div class="previousSingel left-triangle"></div></div>
+		<div class="writer">
+			<?php 
+				$name = get_post_meta($post->ID,'wpcf-user_firstname',true);
+				//$lastname=get_post_meta($post->ID,'wpcf-user_lastname',true);
+				$city = get_post_meta($post->ID,'wpcf-city',true);
+				
+				echo  get_the_title($post->ID). " - ".$city;
+				?>
+					
+			
+		</div>
 	</div>
 	<?php 
 				//get category
@@ -39,18 +61,8 @@
 		<?php the_field('gallery_show'); ?>
 	</p>
 	
-	<span class="next">next</span><br>
-	<span class="previous" data-id="<?php the_ID(); ?>">previous</span><br>
-	<?php next_post_link('<strong>%link</strong>'); ?>||
-	<?php previous_post_link('<strong>%link</strong>'); ?><br>
-
 	
-	<?php //get_template_part('loop'); ?>
-	<?php endwhile;endif;//get_template_part('pagination'); ?>
-	<?php echo $post->ID."<br>";
-			echo get_previous_post_id($post->ID)."<br>";
-			echo get_next_post_id($post->ID)."<br>";
-?>
+	<?php endwhile;endif;?>
 </section>
 
 <!-- /section -->

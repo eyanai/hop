@@ -102,11 +102,15 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 					<input type='checkbox' required><span class='iam'>אני ההורה</span>
 			 
 			
-					
+					<h2>פרטי הקשר</h2>
 						<input type='text'  name='street' id='street'  placeholder='רחוב' ";
 			if($street_fiede){echo " class='req' required ";};
 					echo "	>
 				
+				<input type='text' name='userCalss' id='userCalss' placeholder='מספר'  ";
+				if($userClass_field){echo " class='req' required ";};
+				echo ">
+					
 				<input type='text'  name='apartment' id='apartment'  placeholder='דירה' ";
 			if($apartment_fiede){echo " class='req' required ";};
 					echo "	>
@@ -137,12 +141,8 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 					echo " >".
 						types_render_field('change_title', array("output"=>"text"))
 						."</textarea> 
-						<select name='filetype' id='filetype' title='file type'";
-			if($fileType_fiede){echo " class='req' required ";};
-					echo "	>
-						<option value='img' selected='selected'>img</option>
-						<option value='video'>video</option>
-						</select>
+						
+					
 						<input type='checkbox' required><span class='tarmUse'>אני מסכים לתנאי השימוש</span>
 						<label for='agree'>".
 						types_render_field('checkbot_title', array("output"=>"html"))
