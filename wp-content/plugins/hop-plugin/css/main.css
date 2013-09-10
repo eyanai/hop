@@ -27,11 +27,6 @@
 	box-pack:center;
 	box-align:center;
 }
-fieldset{
-	border-radius:10px;
-	-webkit-box-shadow:#06C 0px 2px 3px 3px;
-	box-shadow:#06C 0px 2px 3px 3px;
-}
 legend{
 	font-size:1.3em;
 	background-color:rgba(0,204,255,1);
@@ -40,4 +35,8 @@ legend{
 	margin:0 auto;
 	width:250px;
 	text-align:center;
+}
+.addimgform{
+	background-color:#5fc4d6;
+	border:solid 2px #fff;
 }
