@@ -72,7 +72,9 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 			if($parent_fiede){echo " class='req' required ";};
 					echo "	>
 						
-					 
+				<input type='text'  name='parentlastname' id='parentlastname' placeholder='שם משפחה' ";
+			if($parent_lastname){echo " class='req' required ";};
+					echo "	>		 
 			
 			<input type='text'  name='parentid' id='parentid' pattern='[0-9]{9}' placeholder='תעודת זהות' ";
 			if($parentId_fiede){echo " class='req' required ";};

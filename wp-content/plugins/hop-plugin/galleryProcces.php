@@ -18,6 +18,7 @@ function galley_form($postType='user-gallery',$postCat='gallery_cat'){
 					$Ulastname=filter_input(INPUT_POST,'userlastname',FILTER_SANITIZE_STRING);
 					$age=filter_input(INPUT_POST,'userage',FILTER_SANITIZE_NUMBER_INT);
 					$Pname=filter_input(INPUT_POST,'parentname',FILTER_SANITIZE_STRING);
+					$Plastname=filter_input(INPUT_POST,'parentlastname',FILTER_SANITIZE_STRING);
 					$Pid=filter_input(INPUT_POST,'parentid',FILTER_SANITIZE_STRING);
 					$phone=filter_input(INPUT_POST,'phone',FILTER_SANITIZE_NUMBER_INT);
 					$email=filter_input(INPUT_POST,'email',FILTER_SANITIZE_EMAIL);
@@ -59,6 +60,7 @@ function galley_form($postType='user-gallery',$postCat='gallery_cat'){
 				update_post_meta($postid, 'wpcf-user_lastname', $Ulastname);
 				update_post_meta($postid, 'wpcf-user_age', $age);
 				update_post_meta($postid, 'wpcf-user_parent', $Pname);
+				update_post_meta($postid, 'wpcf-user_parent_lastname', $Plastname);
 				update_post_meta($postid, 'wpcf-parent_id', $Pid);
 				update_post_meta($postid, 'wpcf-parent_phone', $phone);
 				update_post_meta($postid, 'wpcf-parent_email', $email);
