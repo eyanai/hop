@@ -40,4 +40,7 @@ legend{
 .addimgform{
 	background-color:#5fc4d6;
 	border:solid 2px #fff;
+border-radius: 17px;
+height: 100%;
+padding: 1.5% 3%;
 }

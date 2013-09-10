@@ -155,7 +155,10 @@ ol.commentlist li.thread-even { }
 ol.commentlist li.thread-odd { }
 
 form { }
-input[type=text] { }
+input[type=text] { 
+	padding-right:2px;
+	
+}
 textarea { }
 
 } /* END screen media */
@@ -192,16 +195,177 @@ a { text-decoration: none; color: black; }
 .req {
 	border-color: red;
 	background-color: red;
+		padding-right:3px;
 }
+.mainform{
+	height:614px;
+}
+
 .topheader {
 	background-color: #06F;
 	width: 100%;
 	height: 45px;
 }
-#galId h2{
+.formimgcon{
+	width: 53%;
+/* margin-left: 117px; */
+float: left;
+margin: 0 3% 1.5% 117px;
+}
+.formimgcon, .formCatDetails{
+	height: 400px;
+	
+}
+.formCatDetails{
+	width:23%;
+	padding: 1.1% 2%;
+	margin-left:20px;
+	float:left;
+	background-color: rgb(131,181,200);
+border-radius:17px;
+}
+
+.formimgcon h2{
+	font-size:1.2em;
+	color:#163B51;
+	font-weight:bold;
+}
+
+#rightFormChild{
+	width:63%;
+	float:right;
+}
+#leftFormChild{
+	width:36%;
+	float:left;
+}
+
+.formCatDetails {
+color:#163B51;
+}
+
+.formCatDetails h2{
+	font-size:1.7em;
+	font-weight:bold;
+}
+
+.formCatDetails p:first-child{
 	font-size:1.2em;
 	
 }
+
+.formCatDetails p{
+	font-size:1.2em;
+	
+}
+
+input{
+	
+	margin-bottom:2%;
+}
+
+
+input[type=checkbox]{
+	padding-right:3px;
+}
+
+input[name=username], input[name=userlastname]{
+	width:43%;
+}
+
+input[name=parentname], input[name=parentlastname]{
+	width:27%;
+}
+
+input[name=parentid]{
+	width:20%;
+	margin-left:4px;
+}
+
+input[name=userSchool]{
+	width:89%;
+}
+input[name=userage]{
+	width:73%;
+}
+
+input[name=street]{
+	width:64%;
+}
+input[name=userCalss],input[name=apartment]{
+	width:15%;
+}
+
+input[name=city],input[name=phone]{
+	width:40%;
+}
+
+input[name=zipcode],input[name=email]{
+	width:56%;
+}
+
+input[name=zipcode],input[name=email],input[name=userage]{
+	/* float:left; */
+}
+
+.unstyled::-webkit-inner-spin-button,
+.unstyled::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance:none;
+	display:none;
+	margin-bottom:0;
+}
+input[type="checkbox"] {
+    display: inline-block;
+width: 16px;
+height: 15px;
+vertical-align: middle;
+bottom: 0;
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ccc));
+}
+
+input[type="checkbox"]:checked  {  /* v is missing */
+    background-color: #fff;
+    
+    
+    z-index: 2;
+}
+
+input [type=checkbox] {
+/* width: 1em;
+height: 1em;
+font-size: 15px;
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ccc));
+-webkit-appearance: none;
+-webkit-border-radius: 0.5em;
+margin: 0 3px; */
+
+}
+
+
+label {
+padding-left: 4px;
+font-size: 0.9em;
+}
+
+.iam, .tarmUse {
+font-size: 0.8em;
+vertical-align: middle;
+padding-right: 4px;
+}
+
+/* input[label=userage]{
+	float:left;
+} */
+
+#leftFormChild{
+	font-size:0.9em;
+}
+
 
 /*top headr menu=========================================+++++=======================+++++========================== */
 .topnav {
@@ -402,7 +566,7 @@ margin-top: 5px;
 }
 
 .grassfooter{
-	position: fixed;
+	position: relative;
 	bottom: 0px;
 	width: 1024px;
 }
