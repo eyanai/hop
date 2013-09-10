@@ -135,12 +135,12 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 			
 						<input type='file' name='file' id='file'";
 			if($file_fiede){echo " class='req' required ";};
-					echo "	> 
-						<textarea rows='10' cols='42' name='message' id='message'";
+					echo "	>" 
+						
+						.types_render_field('change_title', array("output"=>"text"))
+						."<input type='text' name='message' id='message'";
 			if($message_field){echo " class='req' required ";};
-					echo " >".
-						types_render_field('change_title', array("output"=>"text"))
-						."</textarea> 
+					echo " >
 						
 					
 						<input type='checkbox' required><span class='tarmUse'>אני מסכים לתנאי השימוש</span>

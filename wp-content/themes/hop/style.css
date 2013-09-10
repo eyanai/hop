@@ -69,7 +69,7 @@ html[xmlns] .cf {
 @media screen {
 
 * { margin: 0; padding: 0; }
-body { background: white; font: 16px/1.4;font-family:Arial, Verdana, sans-serif }
+body { background: white; font: 16px/1.4;font-family:Arial, Verdana, sans-serif;direction:rtl; }
 .screen-reader-text { position: absolute; left: -9999px; top: -9999px; }
 .clear { clear: both; }
 .group:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
@@ -470,7 +470,7 @@ top: 54px;
 }
 /*============================================tax-gallery_cat =================================*/
 .singeltopheader.gallAll{
-    height: 85px;
+    height: 60px;
 
     width: 790px;
 }
@@ -488,7 +488,7 @@ ul.cat_gallery li{
 	height:145px;
 	float:left;
 	position:relative;
-	margin: 15px 15px 4px 16px;
+	margin: 15px 14px 4px 16px;
 	border: solid 4px #16647b;
 	border-radius: 25px;
 	overflow: hidden;
