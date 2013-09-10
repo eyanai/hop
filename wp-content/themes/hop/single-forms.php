@@ -6,10 +6,10 @@
 	<section class="singeltopheader gallAll">
 		
 	</section>
-	<section role="main">
+	<section role="main" class='mainform'>
 
 			<?php	galley_form(); ?>
-		<h1><?php _e( 'Latest Posts', 'html5blank' ); ?></h1>
+		<h1><?php // _e( 'Latest Posts', 'html5blank' ); ?></h1>
 		
 		
 		
@@ -63,10 +63,19 @@
 		
 		
 		<p><?php the_field('gallery_show'); ?></p>
-	
-		<?php //get_template_part('loop'); ?>
 		
-		<?php //get_template_part('pagination'); ?>
+		<?php 
+		$terms = get_the_terms($post->ID, 'gallery_cat');
+			foreach ( $terms as $term ) {
+			echo '<div class="formCatDetails">';
+			$catname=$term->name;
+			
+			echo "<h2>".$catname."</h2>";
+			echo "<div class='textDescript'>".the_field('gallry_description','gallery_cat_'.$term->term_id)."</div></div>";
+			
+			}
+			
+		?>
 	
 	</section>
 	<!-- /section -->
