@@ -48,6 +48,7 @@
 			$terms = get_the_terms($post->ID, 'gallery_cat');
 			foreach ( $terms as $term ) {
 			echo "<h1 class='catH1'>".$term->name."</h1>";
+			$cterms=$term;
 			?>
 			
 			<a href="<?php echo $formlink;?>" class="formlinkgall">להוספת תמונה</a>
@@ -63,6 +64,35 @@
 				 <img src="<?php echo $a['url'];?>" class="imgcat">
 			<?php	
 				
+			}
+			$minHedar=get_field('main_hl','gallery_cat_'.$cterms->term_id);
+			$subHedar=get_field('sub_hl','gallery_cat_'.$cterms->term_id);
+			switch ($minHedar) {
+				case 'בית ספר':
+					$minH='wpcf-school';
+					break;
+				case 'עיר':
+					$minH='wpcf-city';
+					break;
+				case 'גיל':
+					$minH='wpcf-user_age';
+					break;
+				 default:
+        		$minH='wpcf-user_firstname';
+			}
+			
+			switch ($subHedar) {
+				case 'בית ספר':
+					$subH='wpcf-school';
+					break;
+				case 'שם הילד':
+					$subH='wpcf-user_firstname';
+					break;
+				case 'גיל':
+					$subH='wpcf-user_age';
+					break;
+				 default:
+        		$subH='wpcf-city';
 			}
 		?>
 		
@@ -108,10 +138,14 @@
 								<img src="<?php echo $meta;?>" class="mainGallImg"/>
 							<span class="subtitle">
 							<?php 	
-									$name = get_post_meta($post->ID,'wpcf-user_firstname',true);
-									$city = get_post_meta($post->ID,'wpcf-city',true);
-				
-									echo  get_the_title($post->ID). " <br> ".$city;
+									$name = get_post_meta($post->ID,$minH,true);
+									$city = get_post_meta($post->ID,$subH,true);
+									if($minH=='wpcf-user_firstname'){
+										$htop=get_the_title($post->ID);
+									}else{
+										$htop=$name;
+									}								
+									echo  "<span class='mainNeme'>".$htop."</span> <br> ".$city;
 									
 							?>
 							</span>

@@ -45,32 +45,10 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 //	echo $site_url = network_site_url( '/' );
 	//echo $_SERVER['REQUEST_URI'];
 		
-	echo "<fieldset>
-			<legend>".$pageTitle."</legend>
+	echo "<fieldset class='formimgcon'>
 			<form  action=\"".$_SERVER['REQUEST_URI']; 
-	echo   " \" method=\"post\" enctype=\"multipart/form-data\" target=\"my_frame\">
-				";
+	echo   " \" method=\"post\" enctype=\"multipart/form-data\" target=\"my_frame\" class='addimgform'>
 				
-				$categories = get_categories(array('taxonomy'=>'gallery_cat'));
-	echo "
-				<select name=\"galcat\" id=\"galId\" title=\"קטגוריית גלרייה\">
-				";
-					foreach($categories as $cat){
-						//echo "<pre>".print_r($cat,1)."</pre>";
-					
-	echo 	"<option value='{$cat->name}' " ;
-				if($cat->slug ==$corrent){
-					echo "selected='selected' ";
-				}
-				
-	echo     "  data-slug='{$cat->slug}'>{$cat->name} </option>";//
-				}
-	echo    "</select>";
-
-				
-				
-		echo    "
-						<br>
 				<h2>הילד</h2>
 				<input type='text' name='username' id='username' placeholder='שם פרטי' ";
 				if($userName_fiede){echo " class='req' required ";};
@@ -94,7 +72,9 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 			if($parent_fiede){echo " class='req' required ";};
 					echo "	>
 						
-					 
+				<input type='text'  name='parentlastname' id='parentlastname' placeholder='שם משפחה' ";
+			if($parent_lastname){echo " class='req' required ";};
+					echo "	>		 
 			
 			<input type='text'  name='parentid' id='parentid' pattern='[0-9]{9}' placeholder='תעודת זהות' ";
 			if($parentId_fiede){echo " class='req' required ";};
