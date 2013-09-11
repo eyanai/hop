@@ -129,13 +129,12 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 					//echo " >
 						
 					
-					echo"	<input type='checkbox' required><label for='c1'><span></span></label><span class='tarmUse'>אני מאשר/ת את תנאי השימוש</span>
-						<label for='agree'>".
-						types_render_field('checkbot_title', array("output"=>"html"))
-						
-						."</label><input type='checkbox' value='yes' name='agree' ";
+					echo"<div class='agreeBox'>	<input type='checkbox' required><label for='c1'><span></span></label><span class='tarmUse'>אני מאשר/ת את תנאי השימוש</span>
+						<label for='agree'>".types_render_field('checkbot_title', array("output"=>"html"))."
+						<input type='checkbox' value='yes' name='agree' class='cagree' ";
 			if($agree){echo " class='req' required ";};
-					echo " ><label for='c1'><span></span></label><span class='tarmUse'>אני מעוניינ/ת לקבל עדכונים באתר הופ!</span><br>
+					echo " >
+						</label><label for='c1'><span></span></label><span class='tarmUse'></span></div>
 
 						<input type='submit' name='userSubmit' id='galSubmit'>
 			

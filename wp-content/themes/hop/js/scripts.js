@@ -123,6 +123,7 @@ function wFixGall(){
 
 function wFixGallS(){
 	w=Math.round($('.bigImgCon li.show').length/6);
+	$('.bigImgCon').css({'width':'790px'});
 	W=w*790;
 	if(W<790){
 		$('.bigImgCon').css({'width':'790px'});
@@ -135,6 +136,7 @@ function wFixGallS(){
 		$('.circule.left.gallery').hide();
 	}else{
 		$('.circule.right.gallery').show();
+		$('.circule.left.gallery').hide();
 	}
 }
 
