@@ -22,6 +22,11 @@
 			
 			do_action('wp_enqueue_scripts');
 			
+		
+				wp_register_script('formScript', get_template_directory_uri('jquery') . '/js/form.js', array(), '1.0.0'); // Custom scripts
+				wp_enqueue_script('formScript'); // Enqueue it!
+			
+		
 			wp_enqueue_style( 'style-back',get_template_directory_uri()."/css/main.css" );
 		}
 	
