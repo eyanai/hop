@@ -2,6 +2,7 @@
 $(document).ready(function(e) {
 	$('.addimgform').submit(function(e) {
 		var ceck=false;
+		var mail=false;
 		var valid=false;
 		//checkbox
 			$('input[type="checkbox"]').each(function(index, element) {
@@ -24,7 +25,15 @@ $(document).ready(function(e) {
 			
 		//input
 			if($('input.req[type="email"]')!=''){
-				alert('mail');
+				
+				email = $(this).val();
+				filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+				if (filter.test(email.value)) {
+				  mail=true;
+				}else{
+					mail=false;
+				}
+				
 			}
 			
 			$('input.req[type="text"]').each(function(index, element) {
