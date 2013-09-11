@@ -41,7 +41,7 @@ function galley_form($postType='user-gallery',$postCat='gallery_cat'){
 				if(!empty($_FILES['name'])){
 					$titel.=" ".$_FILES['name'];
 					}
-				//	echo "the titel : ---- : ".$Uname." ".$Ulastname;
+				
 					
 				//insert a new post and get the post id
 				$my_post = array(
@@ -81,7 +81,10 @@ function galley_form($postType='user-gallery',$postCat='gallery_cat'){
 				///file uplode
 				
 				$images = $_FILES['file'];
-	
+					
+					echo "<pre id='yanai'>".print_r($images,1)."</pre>";
+					echo "yanai --->the titel : ---- : ".$Uname." ".$Ulastname;
+					
 					//Upload Images
 					if($images){
 					 require_once(ABSPATH . "wp-admin" . '/includes/image.php');
@@ -102,7 +105,7 @@ function galley_form($postType='user-gallery',$postCat='gallery_cat'){
 									'guid' => $uploaded_file['url']
 									);
 			
-									echo "<pre>".$uploaded_file['file']."    ------------------ move file ---    <br> ";
+									echo "<pre style='position:absolute;z-index:500;'>".$uploaded_file['file']."    ------------------ move file ---    <br> ";
 									echo $uploaded_file['url']."    ------------------ move URl ---   </pre>  ";
 									 //Create an Attachment in WordPress
 									$id = wp_insert_attachment( $attachment,$uploaded_file['file'], $postid );	
@@ -114,7 +117,7 @@ function galley_form($postType='user-gallery',$postCat='gallery_cat'){
 			
 									var_dump( $uploaded_file);
 								} else {
-									echo "<span id='respons'>filed</span>";
+									echo "<span id='respons' style='position:absolute;z-index:500;'>filed</span>";
 								}
 						}//end forech
 						echo "<span id='respons'>ok</span>";

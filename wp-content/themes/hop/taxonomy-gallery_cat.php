@@ -202,11 +202,11 @@
 					<span class="letter">ש</span>
 					<span class="letter">ת</span>
 				</div>
-				<!--<div id="searchEN" class="searchLANG">
+				<div id="searchEN" class="searchLANG">
 					<span class="letter">A</span>
 					<span class="letter">B</span>
 					<span class="letter">C</span>
-					<span class="letter"id="circuleFind">D</span>
+					<span class="letter">D</span>
 					<span class="letter">E</span>
 					<span class="letter">F</span>
 					<span class="letter">G</span>
@@ -229,7 +229,7 @@
 					<span class="letter">X</span>
 					<span class="letter">Y</span>
 					<span class="letter">Z</span>
-				</div>-->
+				</div>
 			</div>
 		</div>
 		<span class="showAll">הצג הכל</span>
@@ -239,6 +239,6 @@
 		<span class="eng"></span>
 		<span class="arb"></span>
 		
-		<a href="#" class="standart">לתקנון</a>
+		<a href="#" class="standart">תקנון</a>
 	</section>
 <?php get_footer(); ?>
