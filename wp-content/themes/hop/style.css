@@ -155,7 +155,10 @@ ol.commentlist li.thread-even { }
 ol.commentlist li.thread-odd { }
 
 form { }
-input[type=text] { }
+input[type=text] { 
+	padding-right:2px;
+	
+}
 textarea { }
 
 } /* END screen media */
@@ -192,12 +195,296 @@ a { text-decoration: none; color: black; }
 .req {
 	border-color: red;
 	background-color: red;
+		padding-right:3px;
 }
+.mainform{
+	height:604px;
+	margin-top:76px;
+}
+
 .topheader {
 	background-color: #06F;
 	width: 100%;
 	height: 45px;
 }
+
+
+.formCatDetails{
+	width: 269px;
+padding: 1.1% 2%;
+margin-right: 40px;
+float: right;
+background-color: rgba(28,89,100, 0.39);
+height: 425px;
+border-radius: 17px;
+
+}
+
+.formimgcon {
+width: 50%;
+float: left;
+}
+
+.formimgcon h2{
+	font-size:1.2em;
+	color:#163B51;
+	font-weight:bold;
+	margin-bottom:2px;
+}
+
+#rightFormChild{
+	width:63%;
+	float:right;
+}
+#leftFormChild{
+	width:36%;
+	float:left;
+}
+
+.formCatDetails {
+color:#163B51;
+}
+
+.formCatDetails h2{
+	font-size:1.7em;
+	font-weight:bold;
+}
+
+.formCatDetails p:first-child{
+	font-size:1.2em;
+	
+}
+
+.formCatDetails p{
+	font-size: 1.3em;
+font-weight: bold;
+line-height: 1.1em;
+	
+}
+
+input{
+	
+	margin-bottom:2%;
+}
+
+
+input[type=checkbox]{
+	padding-right:3px;
+}
+
+input[name=username], input[name=userlastname]{
+	width:43%;
+}
+
+input[name=parentname], input[name=parentlastname]{
+	width:27%;
+}
+
+input[name=parentid]{
+	width:20%;
+	margin-left:4px;
+}
+
+input[name=userSchool]{
+	width:89%;
+}
+input[name=userage]{
+	width:68%;
+	text-align:center;
+}
+
+input[name=street]{
+	width:64%;
+}
+input[name=userCalss],input[name=apartment]{
+	width:15%;
+}
+
+input[name=city],input[name=phone]{
+	width:40%;
+}
+
+input[name=zipcode],input[name=email]{
+	width:56%;
+}
+
+input[name=zipcode],input[name=email],input[name=userage]{
+	/* float:left; */
+}
+
+textarea{
+line-height: 1em;
+width: 98%;
+}
+
+.unstyled::-webkit-inner-spin-button,
+.unstyled::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance:none;
+	display:none;
+	margin-bottom:0;
+}
+input[type="checkbox"] {
+    display: inline-block;
+width: 16px;
+height: 15px;
+vertical-align: middle;
+bottom: 0;
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ccc));
+}
+
+input[type="checkbox"]:checked  {  /* v is missing */
+    background-color: #fff;
+    
+    
+    z-index: 2;
+}
+
+input [type=checkbox] {
+/* width: 1em;
+height: 1em;
+font-size: 15px;
+background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ccc));
+-webkit-appearance: none;
+-webkit-border-radius: 0.5em;
+margin: 0 3px; */
+
+}
+
+
+label {
+padding-left: 6px;
+font-size: 0.9em;
+}
+
+.iam, .tarmUse {
+font-size: 0.8em;
+vertical-align: middle;
+padding-right: 4px;
+}
+
+/* input[label=userage]{
+	float:left;
+} */
+
+#leftFormChild{
+	font-size:0.9em;
+}
+
+
+
+div.custom_file_upload {
+}
+
+input.file {
+	width: 150px;
+	height: 90px;
+	border: 1px solid #BBB;
+	
+	color: #888;
+	padding: 5px;
+	
+	
+	
+	
+	
+	
+	
+	
+	outline: none;
+}
+
+div.file_upload {
+	width: 150px;
+	height: 82px;
+	background: #1B5966;
+	margin:3px;
+	
+
+	display: inline;
+	position: absolute;
+	overflow: hidden;
+	cursor: pointer;
+	
+	
+	font-weight: bold;
+	color: #FFF;
+	text-align: center;
+	padding-top: 8px;
+}
+div.file_upload:before {
+	content: '+';
+margin: auto;
+position: absolute;
+left: 0;
+right: 0;
+padding: 5px 0;
+font-weight: lighter;
+color: #fff;
+font-size: 4em;
+text-align: center;
+cursor: pointer;
+}
+
+div.file_upload input {
+	position: relative;
+	height: 30px;
+	width: 250px;
+	display: inline;
+	cursor: pointer;
+	opacity: 0;
+}
+
+.formimgcon h3{
+	text-align: center;
+	margin-bottom:2px;
+font-size: 0.9em;
+color: #265F6D;
+font-weight: bolder;
+}
+
+#galSubmit {
+position: absolute;
+top: 840px;
+left:89px;
+}
+
+input#galSubmit {
+	width: 90px;
+	height: 40px;
+	background: #1B5966;
+	display: inline;
+	position: absolute;
+	overflow: hidden;
+	cursor: pointer;
+	font-weight: bold;
+	color: #FFF;
+	text-align: center;
+	padding-top: 8px;
+  -webkit-border-top-right-radius: 15px;
+	-webkit-border-bottom-right-radius: 15px;
+  -webkit-border-top-left-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-moz-border-radius-topleft: 15px;
+	-moz-border-radius-bottomleft: 15px;
+  -moz-border-radius-topleft: 15px;
+	-moz-border-radius-bottomleft: 15px;
+	border-radius: 15px;
+	outline: none;
+	
+  content: 'שלח/י';
+	position: absolute;
+	
+	text-align: center;
+	border:none;
+	cursor: pointer;
+}
+
+
 /*top headr menu=========================================+++++=======================+++++========================== */
 .topnav {
 	max-width: 1280px;
@@ -397,7 +684,7 @@ margin-top: 5px;
 }
 
 .grassfooter{
-	position: fixed;
+	position: relative;
 	bottom: 0px;
 	width: 1024px;
 }
@@ -741,4 +1028,35 @@ border-radius: 18px;
 	color:#2f8199;
 	float:left;
 	margin-left: 20px;
+}
+
+
+
+/* =========  Yanai check it out..  ======== */
+
+
+
+.regu, .smartInfo {
+position: absolute;
+}
+.smartInfo {
+left: 88px;
+top: 794px;
+text-align: center;
+padding: 1% 0;
+width: 498px;
+margin-right: 40px;
+background-color: rgba(28,89,100, 0.39);
+height: 16px;
+border-radius: 17px;
+color: #265F6D;
+font-weight: bold;
+}
+.regu{
+left: 111px;
+top: 647px;
+height: 60px;
+padding: 5px 20px 0 0;
+background-color: #DAECF9;
+width: 289px;
 }

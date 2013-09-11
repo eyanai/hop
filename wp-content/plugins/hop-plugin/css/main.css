@@ -28,6 +28,7 @@
 	box-align:center;
 }
 legend{
+	display:none;
 	font-size:1.3em;
 	background-color:rgba(0,204,255,1);
 	border-radius:3px;
@@ -37,6 +38,12 @@ legend{
 	text-align:center;
 }
 .addimgform{
-	background-color:#5fc4d6;
-	border:solid 2px #fff;
+	background-color: #5fc4d6;
+border: solid 3px #fff;
+border-radius: 17px;
+height: 423px;
+padding: 1.5% 3%;
+width: 486px;
+float: left;
+margin-left: 113px;
 }

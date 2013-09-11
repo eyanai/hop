@@ -50,22 +50,22 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 	echo   " \" method=\"post\" enctype=\"multipart/form-data\" target=\"my_frame\" class='addimgform'>
 				
 				<h2>הילד</h2>
-				<input type='text' name='username' id='username' placeholder='שם פרטי' ";
+				<div id='rightFormChild'><input type='text' name='username' id='username' placeholder='שם פרטי' ";
 				if($userName_fiede){echo " class='req' required ";};
 				echo ">
 			
-				<input type='text' name='userlastname' id='userlastname' placeholder='שם משפחה' ";
+				<input type='text' name='userlastname' id='userlastname' placeholder='שם משפחה'  ";
 				if($userLastNmae__fiede){echo " class='req' required ";};
-				echo">
+				echo"><br>
 			
 				<input type='text' name='userSchool' id='userSchool' placeholder='שם גן ילדים/ בי\"ס' ";
 				if($school_field){echo " class='req' required ";};
-				echo ">
+				echo "></div>
 			
 			
-				<label for='userage'>תאריך לידה:</label><input type='date'  name='userage' id='userage' ";
+				<div id='leftFormChild'><label for='userage'>ת. לידה</label><input type='date'  name='userage' id='userage' class='unstyled' ";
 					if($age_fiede){echo " class='req' required ";};
-					echo "	><br><br>
+					echo "	><br></div><br><br><br><br>
 					
 				<h2>ההורה</h2>
 			<input type='text'  name='parentname' id='parentname' placeholder='שם הורה' ";
@@ -79,7 +79,7 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 			<input type='text'  name='parentid' id='parentid' pattern='[0-9]{9}' placeholder='תעודת זהות' ";
 			if($parentId_fiede){echo " class='req' required ";};
 					echo "	>
-					<input type='checkbox' required><span class='iam'>אני ההורה</span>
+					<input type='checkbox' required><label for='c1'><span></span></label><span class='iam'>אני ההורה</span>
 			 
 			
 					<h2>פרטי הקשר</h2>
@@ -93,7 +93,7 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 					
 				<input type='text'  name='apartment' id='apartment'  placeholder='דירה' ";
 			if($apartment_fiede){echo " class='req' required ";};
-					echo "	>
+					echo "	><br>
 				
 				<input type='text'  name='city' id='city'  placeholder='עיר' ";
 			if($city_fiede){echo " class='req' required ";};
@@ -101,7 +101,7 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 					
 				<input type='text'  name='zipcode' id='zipcode'  placeholder='מיקוד' ";
 			if($zipcode_fiede){echo " class='req' required ";};
-					echo "	> 
+					echo "	><br>
 					
 			
 			<input type='tel'  name='phone' id='phone' placeholder='טלפון' ";
@@ -110,26 +110,32 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 						
 						<input type='email'  name='email' id='email' placeholder='כתובת מייל' ";
 			if($userEmail_fiede){echo " class='req' required ";};
-					echo "	>
+					echo "	><br>
 			
-			
-						<input type='file' name='file' id='file'";
+			<h3>תנו לנו את הסיסמא שלכם לזהירות בדרכים</h3><textarea name='moto'></textarea><br>
+						<div class='custom_file_upload'>
+							<div class='file_upload'>
+								<input type='file' id='file_upload' name='file_upload'";
 			if($file_fiede){echo " class='req' required ";};
-					echo "	>" 
+					echo "	> 
+					
+						</div>
+						</div>";
 						
-						.types_render_field('change_title', array("output"=>"text"))
-						."<input type='text' name='message' id='message'";
-			if($message_field){echo " class='req' required ";};
-					echo " >
+			
+					// .types_render_field('change_title', array("output"=>"text"))
+						// ."<input type='text' name='message' id='message'";	
+			// if($message_field){echo " class='req' required ";};
+					//echo " >
 						
 					
-						<input type='checkbox' required><span class='tarmUse'>אני מסכים לתנאי השימוש</span>
+					echo"	<input type='checkbox' required><label for='c1'><span></span></label><span class='tarmUse'>אני מאשר/ת את תנאי השימוש</span>
 						<label for='agree'>".
 						types_render_field('checkbot_title', array("output"=>"html"))
 						
 						."</label><input type='checkbox' value='yes' name='agree' ";
 			if($agree){echo " class='req' required ";};
-					echo " >
+					echo " ><label for='c1'><span></span></label><span class='tarmUse'>אני מעוניינ/ת לקבל עדכונים באתר הופ!</span><br>
 
 						<input type='submit' name='userSubmit' id='galSubmit'>
 			
