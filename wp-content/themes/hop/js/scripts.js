@@ -61,11 +61,22 @@ $('.mutagSlider li').hover(function(e){
 	$('.heb').on('click',this,function(){
 		$('#searchEN,#searchAR').hide();
 		$('#searchHE').show();
+		$('.eng ,.arb').removeClass('active');
+		$('.heb').addClass('active');
+		
 		
 	});
 	$('.eng').on('click',this,function(){
 		$('#searchHE,#searchAR').hide();
 		$('#searchEN').show();
+		$('.heb ,.arb').removeClass('active');
+		$('.eng').addClass('active');
+	});
+	$('.arb').on('click',this,function(){
+		$('#searchHE,#searchEN').hide();
+		$('#searchAR').show();
+		$('.heb ,.eng').removeClass('active');
+		$('.arb').addClass('active');
 	});
 
 
@@ -88,10 +99,12 @@ function nextPost(id){
 				var src=obj.src;
 				if(id=='0' || src==false){
 					$('.mascLoder').hide();
+					$('.circule.right').hide();
 					alert('no next post');
 				}else{
 					//alert(obj.id);
-					
+					$('.circule.right').show();
+					$('.circule.left').show();
 					$('#imgSolo').attr('src',src);
 					$('.mascLoder').hide();
 					$('.imgSingelPostCon').attr('cId',obj.postid);
@@ -115,9 +128,11 @@ function prePost(id){
 				var src=obj.src;
 				if(id=='0' || src==false){
 						$('.mascLoder').hide();
+						$('.circule.left').hide();
 						alert('no previous post');
 				}else{
-					
+					$('.circule.right').show();
+					$('.circule.left').show();
 					//alert(obj.id);
 					$('#imgSolo').attr('src',src);
 					$('.mascLoder').hide();
