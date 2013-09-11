@@ -206,10 +206,10 @@ a { text-decoration: none; color: black; }
 
 
 /*======================================================HOP STYLE============================================================*/
-.req {
+.req.act {
 	border-color: red;
 	background-color: red;
-		padding-right:3px;
+	padding-right:3px;
 }
 .mainform{
 	height:604px;

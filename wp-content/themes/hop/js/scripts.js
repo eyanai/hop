@@ -53,6 +53,7 @@ $('.mutagSlider li').hover(function(e){
 	
 	$('.showAll').on('click',this,function(){
 		$('.bigImgCon li').show().removeClass();
+		$('.letter').removeClass('active');
 		wFixGall();
 	});
 	
