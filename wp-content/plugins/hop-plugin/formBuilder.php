@@ -113,23 +113,29 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 					echo "	><br>
 			
 			<h3>תנו לנו את הסיסמא שלכם לזהירות בדרכים</h3><textarea name='moto'></textarea><br>
-						<input type='file' name='file' id='file'";
+						<div class='custom_file_upload'>
+							<div class='file_upload'>
+								<input type='file' id='file_upload' name='file_upload'";
 			if($file_fiede){echo " class='req' required ";};
-					echo "	>" 
+					echo "	> 
+					
+						</div>
+						</div>";
 						
-						.types_render_field('change_title', array("output"=>"text"))
-						."<input type='text' name='message' id='message'";
-			if($message_field){echo " class='req' required ";};
-					echo " >
+			
+					// .types_render_field('change_title', array("output"=>"text"))
+						// ."<input type='text' name='message' id='message'";	
+			// if($message_field){echo " class='req' required ";};
+					//echo " >
 						
 					
-						<input type='checkbox' required><label for='c1'><span></span></label><span class='tarmUse'>אני מאשר/ת את תנאי השימוש</span>
+					echo"	<input type='checkbox' required><label for='c1'><span></span></label><span class='tarmUse'>אני מאשר/ת את תנאי השימוש</span>
 						<label for='agree'>".
 						types_render_field('checkbot_title', array("output"=>"html"))
 						
 						."</label><input type='checkbox' value='yes' name='agree' ";
 			if($agree){echo " class='req' required ";};
-					echo " ><label for='c1'><span></span></label>
+					echo " ><label for='c1'><span></span></label><span class='tarmUse'>אני מעוניינ/ת לקבל עדכונים באתר הופ!</span><br>
 
 						<input type='submit' name='userSubmit' id='galSubmit'>
 			

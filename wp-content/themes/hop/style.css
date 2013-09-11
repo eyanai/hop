@@ -198,7 +198,8 @@ a { text-decoration: none; color: black; }
 		padding-right:3px;
 }
 .mainform{
-	height:614px;
+	height:604px;
+	margin-top:76px;
 }
 
 .topheader {
@@ -206,29 +207,29 @@ a { text-decoration: none; color: black; }
 	width: 100%;
 	height: 45px;
 }
-.formimgcon{
-	width: 53%;
-/* margin-left: 117px; */
-float: left;
-margin: 0 3% 1.5% 117px;
-}
-.formimgcon, .formCatDetails{
-	height: 400px;
-	
-}
+
+
 .formCatDetails{
-	width:23%;
-	padding: 1.1% 2%;
-	margin-left:20px;
-	float:left;
-	background-color: rgb(131,181,200);
-border-radius:17px;
+	width: 269px;
+padding: 1.1% 2%;
+margin-right: 40px;
+float: right;
+background-color: rgba(28,89,100, 0.39);
+height: 425px;
+border-radius: 17px;
+
+}
+
+.formimgcon {
+width: 50%;
+float: left;
 }
 
 .formimgcon h2{
 	font-size:1.2em;
 	color:#163B51;
 	font-weight:bold;
+	margin-bottom:2px;
 }
 
 #rightFormChild{
@@ -255,7 +256,9 @@ color:#163B51;
 }
 
 .formCatDetails p{
-	font-size:1.2em;
+	font-size: 1.3em;
+font-weight: bold;
+line-height: 1.1em;
 	
 }
 
@@ -286,7 +289,8 @@ input[name=userSchool]{
 	width:89%;
 }
 input[name=userage]{
-	width:73%;
+	width:68%;
+	text-align:center;
 }
 
 input[name=street]{
@@ -306,6 +310,11 @@ input[name=zipcode],input[name=email]{
 
 input[name=zipcode],input[name=email],input[name=userage]{
 	/* float:left; */
+}
+
+textarea{
+line-height: 1em;
+width: 98%;
 }
 
 .unstyled::-webkit-inner-spin-button,
@@ -348,7 +357,7 @@ margin: 0 3px; */
 
 
 label {
-padding-left: 4px;
+padding-left: 6px;
 font-size: 0.9em;
 }
 
@@ -364,6 +373,115 @@ padding-right: 4px;
 
 #leftFormChild{
 	font-size:0.9em;
+}
+
+
+
+div.custom_file_upload {
+}
+
+input.file {
+	width: 150px;
+	height: 90px;
+	border: 1px solid #BBB;
+	
+	color: #888;
+	padding: 5px;
+	
+	
+	
+	
+	
+	
+	
+	
+	outline: none;
+}
+
+div.file_upload {
+	width: 150px;
+	height: 82px;
+	background: #1B5966;
+	margin:3px;
+	
+
+	display: inline;
+	position: absolute;
+	overflow: hidden;
+	cursor: pointer;
+	
+	
+	font-weight: bold;
+	color: #FFF;
+	text-align: center;
+	padding-top: 8px;
+}
+div.file_upload:before {
+	content: '+';
+margin: auto;
+position: absolute;
+left: 0;
+right: 0;
+padding: 5px 0;
+font-weight: lighter;
+color: #fff;
+font-size: 4em;
+text-align: center;
+cursor: pointer;
+}
+
+div.file_upload input {
+	position: relative;
+	height: 30px;
+	width: 250px;
+	display: inline;
+	cursor: pointer;
+	opacity: 0;
+}
+
+.formimgcon h3{
+	text-align: center;
+	margin-bottom:2px;
+font-size: 0.9em;
+color: #265F6D;
+font-weight: bolder;
+}
+
+#galSubmit {
+position: absolute;
+top: 840px;
+left:89px;
+}
+
+input#galSubmit {
+	width: 90px;
+	height: 40px;
+	background: #1B5966;
+	display: inline;
+	position: absolute;
+	overflow: hidden;
+	cursor: pointer;
+	font-weight: bold;
+	color: #FFF;
+	text-align: center;
+	padding-top: 8px;
+  -webkit-border-top-right-radius: 15px;
+	-webkit-border-bottom-right-radius: 15px;
+  -webkit-border-top-left-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-moz-border-radius-topleft: 15px;
+	-moz-border-radius-bottomleft: 15px;
+  -moz-border-radius-topleft: 15px;
+	-moz-border-radius-bottomleft: 15px;
+	border-radius: 15px;
+	outline: none;
+	
+  content: 'שלח/י';
+	position: absolute;
+	
+	text-align: center;
+	border:none;
+	cursor: pointer;
 }
 
 
@@ -910,4 +1028,35 @@ border-radius: 18px;
 	color:#2f8199;
 	float:left;
 	margin-left: 20px;
+}
+
+
+
+/* =========  Yanai check it out..  ======== */
+
+
+
+.regu, .smartInfo {
+position: absolute;
+}
+.smartInfo {
+left: 88px;
+top: 794px;
+text-align: center;
+padding: 1% 0;
+width: 498px;
+margin-right: 40px;
+background-color: rgba(28,89,100, 0.39);
+height: 16px;
+border-radius: 17px;
+color: #265F6D;
+font-weight: bold;
+}
+.regu{
+left: 111px;
+top: 647px;
+height: 60px;
+padding: 5px 20px 0 0;
+background-color: #DAECF9;
+width: 289px;
 }

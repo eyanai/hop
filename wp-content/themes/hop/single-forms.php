@@ -7,8 +7,19 @@
 		
 	</section>
 	<section role="main" class='mainform'>
-
+		<div class='formup'>
 			<?php	galley_form(); ?>
+			<div class="regu">
+			 <?php 
+			   $terms = get_the_terms($post->ID, 'gallery_cat');
+			   foreach ( $terms as $term ) {
+			   $catname=$term->name;
+			   $regu=get_field('gall_regulations','gallery_cat_'.$term->term_id);
+			   echo $regu; 
+			 }?>
+			 </div>
+			
+		
 		<h1><?php // _e( 'Latest Posts', 'html5blank' ); ?></h1>
 		
 		
@@ -76,7 +87,12 @@
 			}
 			
 		?>
-	
+		
+		<div class="smartInfo">
+			ניתן לשלוח ישירות מהמכשיר הנייד
+			
+		</div>
+	</div>
 	</section>
 	<!-- /section -->
 	
