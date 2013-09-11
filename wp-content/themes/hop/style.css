@@ -156,7 +156,7 @@ ol.commentlist li.thread-odd { }
 
 form { }
 input[type=text] { 
-	padding-right:2px;
+	/* padding-right:2px; */
     color: #6196AC;
 	
 }
@@ -298,15 +298,15 @@ input[name=street]{
 	width:64%;
 }
 input[name=userCalss],input[name=apartment]{
-	width:15%;
+	width: 76px;
 }
 
 input[name=city],input[name=phone]{
-	width:40%;
+	width: 150px;
 }
 
 input[name=zipcode],input[name=email]{
-	width:56%;
+	width: 320px;
 }
 
 input[name=zipcode],input[name=email],input[name=userage]{
@@ -315,7 +315,7 @@ input[name=zipcode],input[name=email],input[name=userage]{
 
 textarea{
 line-height: 1em;
-width: 98%;
+width: 479px;
 }
 
 .unstyled::-webkit-inner-spin-button,
@@ -590,7 +590,7 @@ input#galSubmit {
 	height:100%;
 }
 .single.single-user-gallery .wrapper,.tax-gallery_cat .wrapper,.single.single-forms .wrapper{
-	background-image:url(images/gallery/BG.jpg);
+	background-image:url(images/gallery/bigBg.jpg);
 	background-repeat:no-repeat;
 	background-size:100%;
 	width:1024px;
@@ -743,10 +743,10 @@ top: 54px;
 }
 .grass{
 	width:100%;
-	background-image:url(images/gallery/FOOTER_02.png);
+	/*background-image:url(images/gallery/FOOTER_02.png);
 	background-repeat:no-repeat;
 	height:179px;
-	background-position:0 0;
+	background-position:0 0;*/
 }
 .singelCat{
 	color:#2f8199;
@@ -754,6 +754,24 @@ top: 54px;
 	position: absolute;
 	right: 0;
 	bottom: 0;
+}
+.mascLoder{
+	position:absolute;
+	width: 554px;
+	height: 377px;
+	background:rgba(0,0,0,.39);
+	border-radius: 35px;
+	z-index:5;
+	display:none;
+}
+.ajaxLoder{
+	background-image:url(images/gallery/ajax-loader.gif);
+	display:block;
+	width:150px;
+	height:150px;
+	background-repeat:no-repeat;
+	background-size:66px 66px;
+	margin: 28%;
 }
 /*============================================tax-gallery_cat =================================*/
 .singeltopheader.gallAll{
@@ -943,13 +961,29 @@ margin-top: 8px;
 }
 #searchHE{
 	direction:rtl;
+	display:block;
 }
 #searchEN{
 	direction:ltr;
+	display:none;
+	font-size:12px;
+}
+#searchEN .letter{
+    font-size: 16px;
+    width: 15px;
+    font-weight: bold;
+
+    margin-top: 3px;
 }
 #searchAR{
 	direction:rtl;
 	display:none;
+	font-size:12px;
+}
+#searchAR .letter {
+    font-size: 12px;
+    width: 12px;
+    font-weight: bold;
 }
 .letter {
 	vertical-align: middle;
@@ -975,14 +1009,12 @@ cursor: pointer;
 color: #11353E;
 padding-top: 1px;
 }
+.letter:hover{
+	color:#fff;
+}
 .letter{
 	width: 3%;
 	font-size: 1.2em;
-}
-.letter:hover {
-	color:white;
-	/* background-color: #347F93;
-	border-radius: 18px; */
 }
 #circuleFind {
 	  width: 21px;
@@ -1107,12 +1139,12 @@ color: #265F6D;
 font-weight: bold;
 }
 .regu{
-left: 145px;
+left: 142px;
 top: 304px;
 height: 60px;
 padding: 5px 20px 0 0;
 background-color: #DAECF9;
-width: 289px;
+width: 293px;
 position: absolute;
 z-index: 5;
 overflow-y: scroll;

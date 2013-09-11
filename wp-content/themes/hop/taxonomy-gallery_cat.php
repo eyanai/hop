@@ -202,11 +202,11 @@
 					<span class="letter">ש</span>
 					<span class="letter">ת</span>
 				</div>
-				<!--<div id="searchEN" class="searchLANG">
+				<div id="searchEN" class="searchLANG">
 					<span class="letter">A</span>
 					<span class="letter">B</span>
 					<span class="letter">C</span>
-					<span class="letter"id="circuleFind">D</span>
+					<span class="letter">D</span>
 					<span class="letter">E</span>
 					<span class="letter">F</span>
 					<span class="letter">G</span>
@@ -229,13 +229,46 @@
 					<span class="letter">X</span>
 					<span class="letter">Y</span>
 					<span class="letter">Z</span>
-				</div>-->
+				</div>
+				<div id="searchAR" class="searchLANG">
+					<span class="letter">ا</span>
+					<span class="letter">ﻻ</span>
+					<span class="letter">ب</span>
+					<span class="letter">ت</span>
+					<span class="letter">ث</span>
+					<span class="letter">ج</span>
+					<span class="letter">ح</span>
+					<span class="letter">خ</span>
+					<span class="letter">د</span>
+					<span class="letter">ذ</span>
+					<span class="letter">ر</span>
+					<span class="letter">ز</span>
+					<span class="letter">س</span>
+					<span class="letter">ش</span>
+					<span class="letter">ص</span>
+					<span class="letter">ض</span>
+					<span class="letter">ط</span>
+					<span class="letter">ظ</span>
+					<span class="letter">ع</span>
+					<span class="letter">غ</span>
+					<span class="letter">ف</span>
+					<span class="letter">ق</span>
+					<span class="letter">ك</span>
+					<span class="letter">ل</span>
+					<span class="letter">م</span>
+					<span class="letter">ن</span>
+					<span class="letter">ه</span>
+					<span class="letter">ة</span>
+					<span class="letter">و</span>
+					<span class="letter">ى</span>
+					<span class="letter">ي</span>
+				</div>
 			</div>
 		</div>
 		<span class="showAll">הצג הכל</span>
 	</section>
 	<section class="lang">
-		<span class="heb"><span class="lang-letter">ע</span></span>
+		<span class="heb active"><span class="lang-letter">ע</span></span>
 		<span class="eng"><span class="lang-letter">En</span></span>
 		<span class="arb"><span class="lang-letter">ي</span></span>
 		

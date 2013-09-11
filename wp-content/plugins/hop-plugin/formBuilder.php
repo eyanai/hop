@@ -115,7 +115,7 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 			<h3>תנו לנו את הסיסמא שלכם לזהירות בדרכים</h3><textarea name='moto'></textarea><br>
 						<div class='custom_file_upload'>
 							<div class='file_upload'>
-								<input type='file' id='file_upload' name='file_upload'";
+								<input type='file' id='file_upload' name='file'";
 			if($file_fiede){echo " class='req' required ";};
 					echo "	> 
 					

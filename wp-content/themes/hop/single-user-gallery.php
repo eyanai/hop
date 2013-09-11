@@ -22,7 +22,8 @@
 	</section>
 <section role="main" class="gallery_main_singel">
 	
-	<div class="imgSingelPostCon" cId="<?php the_ID(); ?>">						 
+	<div class="imgSingelPostCon" cId="<?php the_ID(); ?>">	
+				<div class="mascLoder"><figure class="ajaxLoder"></figure></div>									 
 				<img src="<?php echo $meta;?>" id="imgSolo" class="singelImg">
 		<div class="circule right"><div class="nextSingel right-triangle"></div></div>
 		<div class="circule left"><div class="previousSingel left-triangle"></div></div>
