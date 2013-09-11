@@ -24,7 +24,7 @@ $(document).ready(function(e) {
         //console.log("load iframe:" + $(window[iframeName].document.getElementsByTagName("body")[0]).text());
         //var data = $(window[iframeName].document.getElementsByTagName("body")[0]).text()
         res = $("#my_frame").contents().find("#respons").text();
-        if(res == 'ok') {
+         if(res == 'ok') {
             //$('fieldset').fadeOut('fast', function() { $('.massegShow').html('התמונה והתוכן נוספו').fadeIn(); });
             //if succsess to send the form -
             $("#galSubmit").val("נשלח בהצלחה!");
