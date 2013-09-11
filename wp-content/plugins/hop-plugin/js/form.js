@@ -30,7 +30,7 @@ $(document).ready(function(e) {
             $("#galSubmit").val("נשלח בהצלחה!");
             setTimeout(function() {
                 $("#galSubmit").val("שלח");
-            }, 5000);
+            }, 4000);
 
         } else {
             alert('ישנה שגיאה אנא נסה שנית');
