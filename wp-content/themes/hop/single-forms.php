@@ -7,7 +7,7 @@
 		
 	</section>
 	<section role="main" class='mainform'>
-		<div class='formup'>
+		<div class='formup cf'>
 			<?php	galley_form(); ?>
 			<div class="regu">
 			 <?php 
@@ -75,11 +75,11 @@
 		
 		<p><?php the_field('gallery_show'); ?></p>
 	<?php	$terms = get_the_terms($post->ID, 'gallery_cat');
-			foreach ( $terms as $term ) {
-			$catname=$term->name;
-			$regu=get_field('gall_regulations','gallery_cat_'.$term->term_id);
-			echo $regu;	
-		}?>
+//			foreach ( $terms as $term ) {
+//			$catname=$term->name;
+//			$regu=get_field('gall_regulations','gallery_cat_'.$term->term_id);
+//			echo $regu;	
+//		}?>
 		<?php 
 		$terms = get_the_terms($post->ID, 'gallery_cat');
 			foreach ( $terms as $term ) {

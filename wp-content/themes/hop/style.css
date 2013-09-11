@@ -432,8 +432,8 @@ cursor: pointer;
 
 div.file_upload input {
 	position: relative;
-	height: 30px;
-	width: 250px;
+	height: 80px;
+	width: 150px;
 	display: inline;
 	cursor: pointer;
 	opacity: 0;
@@ -449,8 +449,8 @@ font-weight: bolder;
 
 #galSubmit {
 position: absolute;
-top: 840px;
-left:89px;
+top: 510px;
+left: 119px;
 }
 
 input#galSubmit {
@@ -1040,12 +1040,12 @@ border-radius: 18px;
 position: absolute;
 }
 .smartInfo {
-left: 88px;
-top: 794px;
+left: 118px;
+top: 464px;
 text-align: center;
 padding: 1% 0;
 width: 498px;
-margin-right: 40px;
+margin-right: 30px;
 background-color: rgba(28,89,100, 0.39);
 height: 16px;
 border-radius: 17px;
@@ -1053,10 +1053,33 @@ color: #265F6D;
 font-weight: bold;
 }
 .regu{
-left: 111px;
-top: 647px;
+left: 145px;
+top: 304px;
 height: 60px;
 padding: 5px 20px 0 0;
 background-color: #DAECF9;
 width: 289px;
+position: absolute;
+z-index: 5;
+overflow-y: scroll;
+overflow-x: hidden;
+white-space: pre-line;
+}
+.formup {
+position: relative;
+}
+.agreeBox {
+position: absolute;
+left: 225px;
+top: 373px;
+}
+.cagree {
+position: absolute;
+top: 25px;
+}
+#wpcf-field-checkbot_title {
+position: absolute;
+left: -31px;
+top: 26px;
+font-size: 0.87em;
 }
