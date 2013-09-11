@@ -2,7 +2,7 @@
 	
 <section class="singeltopheader gallAll">
 		<div class="socialSingel">
-		<a href="mailto:someone@example.com?Subject=Hello%20again" target="_blank" class="facebookShare" id="sendToFriend" ><span class="letterImg"></span> שלח לחבר</a>
+		<a href="mailto:someone@example.com?Subject=Hello%20again" class="facebookShare" id="sendToFriend" ><span class="letterImg"></span> שלח לחבר</a>
 		<a class="facebookShare" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;">
 		<span class="faceImg"></span> שתף בפייסבוק
 		</a>
@@ -274,4 +274,29 @@
 		
 		<a href="#" class="standart">תקנון</a>
 	</section>
+<script>
+
+    $("#file_upload") .change(function(e) {
+
+        var fileName = $(this).val();
+        if((/\.(gif|jpg|jpeg|png)$/i).test(fileName)) {
+
+            if(this.files && this.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    console.log(e.target.result);
+                    $("#add-competitor-imgFile").attr("src", e.target.result);
+                    smallImgAdded = true;
+                };
+
+                reader.readAsDataURL(this.files[0]);
+            }
+        }
+        else {
+            alert("noValidFile");
+        }
+    });
+</script>
+
 <?php get_footer(); ?>

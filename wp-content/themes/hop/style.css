@@ -155,10 +155,23 @@ ol.commentlist li.thread-even { }
 ol.commentlist li.thread-odd { }
 
 form { }
-input[type=text] { 
+input { 
 	/* padding-right:2px; */
     color: #6196AC;
 	
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #6196AC;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #6196AC;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #6196AC;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #6196AC;
 }
 textarea { }
 
@@ -212,7 +225,7 @@ a { text-decoration: none; color: black; }
 
 .formCatDetails{
 	width: 269px;
-padding: 1.1% 2%;
+padding:3.5% 2%;
 margin-right: 40px;
 float: right;
 background-color: rgba(28,89,100, 0.39);
@@ -415,6 +428,7 @@ div.file_upload {
 	color: #FFF;
 	text-align: center;
 	padding-top: 8px;
+    margin-top: 11px;
 }
 div.file_upload:before {
 	content: '+';
@@ -1127,7 +1141,7 @@ position: absolute;
 }
 .smartInfo {
 left: 118px;
-top: 464px;
+top: 458px;
 text-align: center;
 padding: 1% 0;
 width: 498px;
@@ -1137,10 +1151,11 @@ height: 16px;
 border-radius: 17px;
 color: #265F6D;
 font-weight: bold;
+position: absolute;
 }
 .regu{
 left: 142px;
-top: 304px;
+top: 313px;
 height: 60px;
 padding: 5px 20px 0 0;
 background-color: #DAECF9;
@@ -1156,8 +1171,8 @@ position: relative;
 }
 .agreeBox {
 position: absolute;
-left: 225px;
-top: 373px;
+left: 261px;
+top: 387px;
 }
 .cagree {
 position: absolute;
