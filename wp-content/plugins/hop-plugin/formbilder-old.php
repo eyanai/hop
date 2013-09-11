@@ -150,7 +150,7 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 						<input type='submit' name='userSubmit' id='galSubmit'>
 			
 			</form>
-			<iframe name='my_frame' id='my_frame'>
+			<iframe name='my_frame' id='my_frame' onsubmit='javascript:alert(2)'>
   			</iframe>
 		</fieldset>
 		<div class='massegShow'></div>";

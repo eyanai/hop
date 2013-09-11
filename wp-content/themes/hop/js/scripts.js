@@ -91,9 +91,9 @@ function nextPost(id){
 			
 			$.post(ajax_object.ajaxurl, {
 			id:id,
-			action: 'next_post',
-			}
-			, function(data) {
+			action: 'next_post'
+			},
+			 function(data) {
 				var obj = jQuery.parseJSON(data);
 				var id=obj.postid;
 				var src=obj.src;

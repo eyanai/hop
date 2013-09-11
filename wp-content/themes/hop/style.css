@@ -429,6 +429,8 @@ div.file_upload {
 	text-align: center;
 	padding-top: 8px;
     margin-top: 11px;
+    
+    background-size: 100% 100%;
 }
 div.file_upload:before {
 	content: '+';
@@ -630,7 +632,7 @@ input#galSubmit {
 .gallery_main_singel{
     position: relative;
 }
-.imgSingelPostCon,.singelImg{
+.imgSingelPostCon{
 	width:545px;
 	height:370px;
 	margin:0 auto;
@@ -644,10 +646,18 @@ input#galSubmit {
 	border-radius: 35px;
 	position:relative;
 }
-.singelImg{
-	border:solid 4px #16647b;
-	border-radius:35px;
+.image-solo-wrap{
+   width: 545px;
+height: 370px;
+border: solid 4px #16647b;
+border-radius: 35px;
+background-size: 100%;
+background-repeat: no-repeat;
+background-position: center;
 }
+}
+
+
 .nextSingel{
 	right:0px;
 	cursor:pointer;
