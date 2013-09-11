@@ -339,10 +339,9 @@ background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ccc)
 }
 
 input[type="checkbox"]:checked  {  /* v is missing */
-    background-color: #fff;
-    
-    
-    z-index: 2;
+    background: none;
+background-image: url('images/Hop_galler_tofes_flatten.png');
+background-size: 100% 100%;
 }
 
 input [type=checkbox] {
