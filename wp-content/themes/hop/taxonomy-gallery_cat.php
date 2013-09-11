@@ -51,7 +51,7 @@
 			$cterms=$term;
 			?>
 			
-			<a href="<?php echo $formlink;?>" class="formlinkgall">להוספת תמונה</a>
+			<a href="<?php echo $formlink;?>" class="formlinkgall">הוסף תמונה</a>
 			<?php
 			$term->term_id;
 				//echo  get_field('img_icon','gallery_cat_'.$term->term_id);
@@ -235,10 +235,10 @@
 		<span class="showAll">הצג הכל</span>
 	</section>
 	<section class="lang">
-		<span class="heb"></span>
-		<span class="eng"></span>
-		<span class="arb"></span>
+		<span class="heb"><span class="lang-letter">ע</span></span>
+		<span class="eng"><span class="lang-letter">En</span></span>
+		<span class="arb"><span class="lang-letter">ي</span></span>
 		
-		<a href="#" class="standart">לתקנון</a>
+		<a href="#" class="standart">תקנון</a>
 	</section>
 <?php get_footer(); ?>
