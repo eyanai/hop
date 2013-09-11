@@ -2,7 +2,7 @@
 	
 <section class="singeltopheader gallAll">
 		<div class="socialSingel">
-		<a href="#" class="facebookShare"><span class="letterImg"></span> שלח לחבר</a>
+		<a href="mailto:someone@example.com?Subject=Hello%20again" target="_blank" class="facebookShare" id="sendToFriend" ><span class="letterImg"></span> שלח לחבר</a>
 		<a class="facebookShare" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;">
 		<span class="faceImg"></span> שתף בפייסבוק
 		</a>
