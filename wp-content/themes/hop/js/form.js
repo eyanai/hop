@@ -8,7 +8,7 @@ $(document).ready(function(e) {
 		var valid=false;
 		var inputc=false;
 		var FORM_VALID=false;
-		
+		var messeg='אנא מלא שדות מסומנים';
 		// DEFINE RETURN VALUES
 var R_ELEGAL_INPUT = -1;
 var R_NOT_VALID = -2;
@@ -60,6 +60,7 @@ function ValidateID(str)
 				}else{
 					$('.iam').addClass('act');
 					ceckim=false;
+					messeg='אנא אשר שהינך ההורה';
 				}
 				
 				if($('.trume').is(':checked')){
@@ -68,21 +69,26 @@ function ValidateID(str)
 				}else{
 					$('.tarmUse').addClass('act');
 					ceck=false;
+					messeg='אנא הסכם לתנאי השימוש';
 				}
 			});
 			
 		//input
-			if($('input[type="email"]').hasClass('req')){
+			if($('#email').hasClass('req')){
 				
-				email = $('input[type="email"]').val();
-				filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-				if (filter.test(email.value)) {
-					  mail=true;
+				emailt = $('#email').val();
+				var emailfilter = /(([a-zA-Z0-9\-?\.?]+)@(([a-zA-Z0-9\-_]+\.)+)([a-z]{2,3}))+$/;
+				alert(emailfilter.test(emailt));
+					if((emailt != "") && (emailfilter.test(emailt))) {
+						mail=true;
+					  $('input[type="email"]').removeClass('act');
+					}else{
+						mail=false;
+						$('input[type="email"]').addClass('act');
+						messeg='אנא מלא אימייל תקין';
+					}
 				}else{
-					mail=false;
-				}
-				
-			}else{
+					
 				 mail=true;
 			}
 			
@@ -99,6 +105,7 @@ function ValidateID(str)
 						$('input.req[type="text"]').each(function(index, element) {
 							if($(this).hasClass('need')){
 								inputc=false;
+								messeg='אנא מלא שדות נדרשים';
 							}else{
 								inputc=true;
 							}	
@@ -107,6 +114,9 @@ function ValidateID(str)
 				});
 			});
 				
+			if(!($('input[type="text"]').hasClass('req'))){
+				inputc=true;
+			}
 			
 			if($('#parentid').hasClass('req')){
 				idval=$('#parentid').val();
@@ -114,7 +124,7 @@ function ValidateID(str)
 					valid=true;
 				}else{
 					valid=false;
-					alert('תז לא תקינה');
+					messeg='תז בפורמט לא תקין';
 				}
 			}else{
 				valid=true;
@@ -122,10 +132,12 @@ function ValidateID(str)
 			
 			if($('#userage').hasClass('req')){//
 			
-				if($('#userage')){
+				if($('#userage').val()!=''){
 					$('.agelabel').removeClass('act');
 					agec=true;
 				}else{
+					agec=false;
+					messeg='אנא מלא תאריך לידה';
 					$('.agelabel').addClass('req act');
 				}
 			}else{
@@ -136,9 +148,8 @@ function ValidateID(str)
 		if(agec==true && valid==true && inputc==true && mail==true && ceck==true && ceckim==true){
 				FORM_VALID=true;
 				$('.alertmessg').hide();
-				
 			}else{
-				$('.alertmessg').text('אנא מלא שדות מסומנים').show();
+				$('.alertmessg').text(messeg).show();
 				FORM_VALID=false;
 		}
 		
@@ -146,6 +157,8 @@ function ValidateID(str)
 		if(FORM_VALID==false){
 			e.preventDefault();
 			return  false;
+		}else{
+			$("#galSubmit").val("שולח...");
 		}
 	});
 	
@@ -166,9 +179,7 @@ function ValidateID(str)
 			});
     });
 
-    $("#my_frame").submit(function(){
-        $("#galSubmit").val("שולח...");
-    });
+ 
 
     $('#my_frame').on('load', function() {
         //var iframeName = $(obj).attr("name");
@@ -184,7 +195,23 @@ function ValidateID(str)
             }, 5000);
 
         } else {
-            alert('ישנה שגיאה אנא נסה שנית');
+			switch (res){
+				case '10':
+					$('.alertmessg').text('פורמט קובץ- לא נכון').show();
+				break;
+				case '8':
+					$('.alertmessg').text('הייתה בעייה בהעלאת הקובץ- אנא נסה שנית').show();
+				break;
+				case '2':
+					$('.alertmessg').text('גודל הקובץ חורג מהמותר').show();
+				break;
+				case '1':
+					$('.alertmessg').text('גודל הקובץ חורג מהמותר').show();
+				break;
+				default:
+				$('.alertmessg').hide();
+			}
+			alert('ישנה שגיאה אנא נסה שנית');
              $("#galSubmit").val("שלח");
         }
     });
@@ -208,7 +235,7 @@ function ValidateID(str)
             }
         }
         else {
-            alert("noValidFile");
+           $('.alertmessg').text('פורמט קובץ- לא נכון').show();
         }
     });
 

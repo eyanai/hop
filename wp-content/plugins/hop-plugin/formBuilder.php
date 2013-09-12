@@ -37,9 +37,10 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 		
 	$meta_values =$terms = wp_get_post_terms($pageID, 'gallery_cat');
 	$corrent=$meta_values[0]->slug;
+	//echo "<pre>".print_r($req,1)."</pre>";
 	if($req) extract($req);
 	
-	
+
 	//echo "the field is:". the_field('gallery_show','gallery_cat_'.$cat->term_id).'<br><br>'; 
 	$categories = get_categories(array('taxonomy'=> $toxsonomy));
 //	echo $site_url = network_site_url( '/' );
@@ -64,9 +65,9 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 			
 			
 				<div id='leftFormChild'><label for='userage' class='agelabel'>ת. לידה</label>
-					<input type='date'  name='userage' id='userage' class='unstyled' ";
-					if($age_fiede){echo " class='req'  ";};
-					echo "	><br></div><br><br><br><br>
+					<input type='date'  name='userage' id='userage' class='unstyled ";
+					if($age_fiede=='age_fiede'){echo "req";}
+					echo "'><br></div><br><br><br><br>
 					
 				<h2>ההורה</h2>
 			<input type='text'  name='parentname' id='parentname' placeholder='שם הורה' ";
@@ -139,6 +140,7 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 
 						<input type='submit' name='userSubmit' id='galSubmit'>
 			<span class='alertmessg'></span>
+			<span class='formatimg'>ניתן להעלות קבצי JPEG</span>
 			</form>
 			<iframe name='my_frame' id='my_frame'>
   			</iframe>

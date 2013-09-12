@@ -53,9 +53,15 @@ position:relative;
 }
 .alertmessg {
 position: absolute;
-bottom: 20px;
-right: 23px;
+bottom: -90px;
+right: 270px;
 color: red;
 font-size: 12px;
 display: none;
+}
+.formatimg {
+position: absolute;
+bottom: 22px;
+font-size: 12px;
+right: 35px;
 }

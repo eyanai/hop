@@ -36,93 +36,110 @@ function galley_form($postType='user-gallery',$postCat='gallery_cat'){
 	echo "<hr>".$galcat."<hr>";
 	
 	
-					
+				$ero=$_FILES['file']['error'];	
 				$titel=$Uname." ".$Ulastname;
 				if(!empty($_FILES['name'])){
 					$titel.=" ".$_FILES['name'];
 					}
 				
-					
+				if($ero==0){	
 				//insert a new post and get the post id
-				$my_post = array(
-				  'post_type' => $postType,
-				  'post_status'=> 'pending',
-				  'post_title'  =>$titel
-				);
+					$my_post = array(
+					  'post_type' => $postType,
+					  'post_status'=> 'pending',
+					  'post_title'  =>$titel
+					);
 				// Insert the post into the database
-				$postid=wp_insert_post( $my_post );
+					$postid=wp_insert_post( $my_post );
 				
 				//insert to terms 
-				wp_set_object_terms( $postid,$galcat,$postCat );
+					wp_set_object_terms( $postid,$galcat,$postCat );
 						
 				//insert castoum filde to the post type
-				update_post_meta($postid, 'wpcf-user_firstname', $Uname);
-				update_post_meta($postid, 'wpcf-user_lastname', $Ulastname);
-				update_post_meta($postid, 'wpcf-user_age', $age);
-				update_post_meta($postid, 'wpcf-user_parent', $Pname);
-				update_post_meta($postid, 'wpcf-user_parent_lastname', $Plastname);
-				update_post_meta($postid, 'wpcf-parent_id', $Pid);
-				update_post_meta($postid, 'wpcf-parent_phone', $phone);
-				update_post_meta($postid, 'wpcf-parent_email', $email);
-				update_post_meta($postid, 'wpcf-apartment', $apartment);
-				update_post_meta($postid, 'wpcf-city', $city);
-				update_post_meta($postid, 'wpcf-street', $street); 
-				update_post_meta($postid, 'wpcf-zipcode', $zipcode); 
-				update_post_meta($postid, 'wpcf-user_file_type', $filetype); 
-				update_post_meta($postid, 'wpcf-usercalss', $userCalss); 
-				update_post_meta($postid, 'wpcf-school', $school); 
-				update_post_meta($postid, 'wpcf-message', $message); 
-				update_post_meta($postid, 'wpcf-agree', $agree);
+					update_post_meta($postid, 'wpcf-user_firstname', $Uname);
+					update_post_meta($postid, 'wpcf-user_lastname', $Ulastname);
+					update_post_meta($postid, 'wpcf-user_age', $age);
+					update_post_meta($postid, 'wpcf-user_parent', $Pname);
+					update_post_meta($postid, 'wpcf-user_parent_lastname', $Plastname);
+					update_post_meta($postid, 'wpcf-parent_id', $Pid);
+					update_post_meta($postid, 'wpcf-parent_phone', $phone);
+					update_post_meta($postid, 'wpcf-parent_email', $email);
+					update_post_meta($postid, 'wpcf-apartment', $apartment);
+					update_post_meta($postid, 'wpcf-city', $city);
+					update_post_meta($postid, 'wpcf-street', $street); 
+					update_post_meta($postid, 'wpcf-zipcode', $zipcode); 
+					update_post_meta($postid, 'wpcf-user_file_type', $filetype); 
+					update_post_meta($postid, 'wpcf-usercalss', $userCalss); 
+					update_post_meta($postid, 'wpcf-school', $school); 
+					update_post_meta($postid, 'wpcf-message', $message); 
+					update_post_meta($postid, 'wpcf-agree', $agree);
 				
 				
 				//for email tracikng
-				add_post_meta($postid, 'post_report', 'pending');
+					add_post_meta($postid, 'post_report', 'pending');
 				
 				///file uplode
 				
-				$images = $_FILES['file'];
-					
+					$images = $_FILES['file'];
+					$type =$_FILES['file']['type'];
 					echo "<pre id='yanai'>".print_r($images,1)."</pre>";
 					echo "yanai --->the titel : ---- : ".$Uname." ".$Ulastname;
 					
-					//Upload Images
-					if($images){
-					 require_once(ABSPATH . "wp-admin" . '/includes/image.php');
-					 require_once(ABSPATH . "wp-admin" . '/includes/file.php');
-					 require_once(ABSPATH . "wp-admin" . '/includes/media.php');
-					foreach($_FILES as $field => $file){
-						$filename=$_FILES["file"]["name"];
-						$uploadedfile = $_FILES['file'];
-							$upload_overrides = array( 'test_form' => false );
-							$uploaded_file  = wp_handle_upload( $uploadedfile, $upload_overrides );
-								if ( $uploaded_file ) {
-									$attachment = array(
-									'post_title' => $file['name'],
-									'post_content' => '',
-									'post_type' => 'attachment',
-									'post_parent' => $post->ID,
-									'post_mime_type' => $file['type'],
-									'guid' => $uploaded_file['url']
-									);
-			
-									echo "<pre style='position:absolute;z-index:500;'>".$uploaded_file['file']."    ------------------ move file ---    <br> ";
-									echo $uploaded_file['url']."    ------------------ move URl ---   </pre>  ";
-									 //Create an Attachment in WordPress
-									$id = wp_insert_attachment( $attachment,$uploaded_file['file'], $postid );	
-									
-									update_post_meta($postid,'wpcf-user_img', $uploaded_file['url']);
-			
-										//Remove it from the array to avoid duplicating during autosave/revisions.
-										unset($_FILES[$field]);
-			
-									var_dump( $uploaded_file);
-								} else {
-									echo "<span id='respons' style='position:absolute;z-index:500;'>filed</span>";
-								}
-						}//end forech
-						echo "<span id='respons'>ok</span>";
-					}
-					echo "<span id='respons'>ok</span>";
+					//check type
+					$type = strtolower($type);
+					
+					
+					if(($type == "image/gif")||($type == "image/jpeg")||($type == "image/png")||$type == "image/jpg"){
+							$typeok=true;
+						}else{
+							$ero='10';
+						}
+						
+					if($typeok==true):
+					
+						//Upload Images
+							if($images){
+							 require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+							 require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+							 require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+									foreach($_FILES as $field => $file){
+										$filename=$_FILES["file"]["name"];
+										$uploadedfile = $_FILES['file'];
+											$upload_overrides = array( 'test_form' => false );
+											$uploaded_file  = wp_handle_upload( $uploadedfile, $upload_overrides );
+												if ( $uploaded_file ) {
+													$attachment = array(
+													'post_title' => $file['name'],
+													'post_content' => '',
+													'post_type' => 'attachment',
+													'post_parent' => $post->ID,
+													'post_mime_type' => $file['type'],
+													'guid' => $uploaded_file['url']
+													);
+							
+													echo "<pre style='position:absolute;z-index:500;'>".$uploaded_file['file']."    ------------------ move file ---    <br> ";
+													echo $uploaded_file['url']."    ------------------ move URl ---   </pre>  ";
+													 //Create an Attachment in WordPress
+													$id = wp_insert_attachment( $attachment,$uploaded_file['file'], $postid );	
+													
+													update_post_meta($postid,'wpcf-user_img', $uploaded_file['url']);
+							
+														//Remove it from the array to avoid duplicating during autosave/revisions.
+														unset($_FILES[$field]);
+							
+													var_dump( $uploaded_file);
+												} else {
+													echo "<span id='respons' style='position:absolute;z-index:500;'>filed</span>";
+												}
+										}//end forech
+							
+						}
+						endif;
+							echo "<span id='respons'>ok</span>";
+				}else{
+						echo "<span id='respons'>$ero</span>";
+				}
+				
 			}//end if isset
 
 }
