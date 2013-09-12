@@ -2,16 +2,64 @@
 $(document).ready(function(e) {
 	$('.addimgform').submit(function(e) {
 		var ceck=false;
+		var ceckim=false;
 		var mail=false;
+		var agec=false;
 		var valid=false;
+		var inputc=false;
+		var FORM_VALID=false;
+		
+		// DEFINE RETURN VALUES
+var R_ELEGAL_INPUT = -1;
+var R_NOT_VALID = -2;
+var R_VALID = 1; 
+
+function ValidateID(str)
+{ 
+   //INPUT VALIDATION
+
+   // Just in case -> convert to string
+   var IDnum = String(str);
+
+   // Validate correct input
+   if ((IDnum.length > 9) || (IDnum.length < 5))
+      return R_ELEGAL_INPUT; 
+   if (isNaN(IDnum))
+      return R_ELEGAL_INPUT;
+
+   // The number is too short - add leading 0000
+   if (IDnum.length < 9)
+   {
+      while(IDnum.length < 9)
+      {
+         IDnum = '0' + IDnum;         
+      }
+   }
+
+   // CHECK THE ID NUMBER
+   var mone = 0, incNum;
+   for (var i=0; i < 9; i++)
+   {
+      incNum = Number(IDnum.charAt(i));
+      incNum *= (i%2)+1;
+      if (incNum > 9)
+         incNum -= 9;
+      mone += incNum;
+   }
+   if (mone%10 == 0)
+      return R_VALID;
+   else
+      return R_NOT_VALID;
+}
+		
 		//checkbox
 			$('input[type="checkbox"]').each(function(index, element) {
 				if($('.iampernt').is(':checked')){
 					$('.iam').removeClass('act');
-					ceck=true;
+					ceckim=true;
 				}else{
 					$('.iam').addClass('act');
-					ceck=false;
+					ceckim=false;
 				}
 				
 				if($('.trume').is(':checked')){
@@ -24,41 +72,84 @@ $(document).ready(function(e) {
 			});
 			
 		//input
-			if($('input.req[type="email"]')!=''){
+			if($('input[type="email"]').hasClass('req')){
 				
-				email = $(this).val();
+				email = $('input[type="email"]').val();
 				filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 				if (filter.test(email.value)) {
-				  mail=true;
+					  mail=true;
 				}else{
 					mail=false;
 				}
 				
+			}else{
+				 mail=true;
 			}
 			
 			$('input.req[type="text"]').each(function(index, element) {
 				if($(this).val()==''){
-					$(this).addClass('act');
+					$(this).addClass('act need');
 				}
+				
+				
+				$('.need').each(function(index, element) {
+					if($(this).val()!=''){
+						$(this).removeClass('act need');
+						
+						$('input.req[type="text"]').each(function(index, element) {
+							if($(this).hasClass('need')){
+								inputc=false;
+							}else{
+								inputc=true;
+							}	
+						});
+					}
+				});
 			});
 				
+			
+			if($('#parentid').hasClass('req')){
+				idval=$('#parentid').val();
+				if(ValidateID(idval)==1){
+					valid=true;
+				}else{
+					valid=false;
+					alert('תז לא תקינה');
+				}
+			}else{
+				valid=true;
+			}
+			
+			if($('#userage').hasClass('req')){//
+			
+				if($('#userage')){
+					$('.agelabel').removeClass('act');
+					agec=true;
+				}else{
+					$('.agelabel').addClass('req act');
+				}
+			}else{
+				agec=true;
+			}
 					
-		if(valid==false){
+	
+		if(agec==true && valid==true && inputc==true && mail==true && ceck==true && ceckim==true){
+				FORM_VALID=true;
+				$('.alertmessg').hide();
+				
+			}else{
+				$('.alertmessg').text('אנא מלא שדות מסומנים').show();
+				FORM_VALID=false;
+		}
+		
+		
+		if(FORM_VALID==false){
 			e.preventDefault();
 			return  false;
 		}
 	});
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 
     $('#galId').on('change', function() {
 

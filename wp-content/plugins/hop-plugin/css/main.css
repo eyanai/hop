@@ -49,4 +49,13 @@ float: left;
 margin-left: 113px;
 box-shadow: inset 0px -11px 34px -14px #4f5fda;
 color: #1B5966;
+position:relative;
+}
+.alertmessg {
+position: absolute;
+bottom: 20px;
+right: 23px;
+color: red;
+font-size: 12px;
+display: none;
 }

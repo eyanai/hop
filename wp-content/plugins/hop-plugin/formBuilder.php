@@ -63,7 +63,8 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 				echo "></div>
 			
 			
-				<div id='leftFormChild'><label for='userage'>ת. לידה</label><input type='date'  name='userage' id='userage' class='unstyled' ";
+				<div id='leftFormChild'><label for='userage' class='agelabel'>ת. לידה</label>
+					<input type='date'  name='userage' id='userage' class='unstyled' ";
 					if($age_fiede){echo " class='req'  ";};
 					echo "	><br></div><br><br><br><br>
 					
@@ -76,7 +77,7 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 			if($parent_lastname){echo " class='req'  ";};
 					echo "	>		 
 			
-			<input type='text'  name='parentid' id='parentid' pattern='[0-9]{9}' placeholder='תעודת זהות' ";
+			<input type='text'  name='parentid' id='parentid' placeholder='תעודת זהות' ";
 			if($parentId_fiede){echo " class='req'  ";};
 					echo "	>
 					<input type='checkbox' class='iampernt'><label for='c1'><span></span></label><span class='iam req'>אני ההורה</span>
@@ -137,10 +138,11 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 						</label><label for='c1'><span></span></label><span class='tarmUse'></span></div>
 
 						<input type='submit' name='userSubmit' id='galSubmit'>
-			
+			<span class='alertmessg'></span>
 			</form>
 			<iframe name='my_frame' id='my_frame'>
   			</iframe>
+			
 		</fieldset>
 		<div class='massegShow'></div>";
 }

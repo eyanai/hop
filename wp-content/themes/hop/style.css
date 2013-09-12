@@ -466,7 +466,7 @@ font-weight: bolder;
 #galSubmit {
 position: absolute;
 top: 510px;
-left: 119px;
+left: 0px;
 }
 
 input#galSubmit {
@@ -1182,7 +1182,7 @@ position: relative;
 }
 .agreeBox {
 position: absolute;
-left: 261px;
+left: 147px;
 top: 387px;
 }
 .cagree {
