@@ -90,8 +90,19 @@ function galley_form($postType='user-gallery',$postCat='gallery_cat'){
 					
 					
 					if(($type == "image/gif")||($type == "image/jpeg")||($type == "image/png")||$type == "image/jpg"){
-							$typeok=true;
+							//$string=$_FILES['file']['name'];
+							// $heb=preg_match("/\p{Hebrew}/u", $string);
+							//if($heb==0){
+								//$ero='10';
+							//}else{
+								
+								
+								
+							
+								$typeok=true;
+						//	}
 						}else{
+							
 							$ero='10';
 						}
 						
@@ -142,4 +153,29 @@ function galley_form($postType='user-gallery',$postCat='gallery_cat'){
 				
 			}//end if isset
 
+}
+
+
+
+add_filter('wp_handle_upload_prefilter', 'custom_upload_filter' );
+
+function custom_upload_filter( $file ){
+	$newname='hop_'. date('m-d').time() ;
+	switch ($file["type"])
+    {
+    case 'image/jpeg':
+      $imgType='jpg';    
+      break;
+	 case 'image/jpg':
+      $imgType='jpg';   
+      break;
+    case "image/gif":
+      $imgType='gif';
+      break;
+    default:
+      $imgType='png';
+    }
+	
+    $file['name'] =$newname.'.'.$imgType;
+    return $file;
 }

@@ -651,7 +651,8 @@ input#galSubmit {
 height: 370px;
 border: solid 4px #16647b;
 border-radius: 35px;
-background-size: 100%;
+
+   background-size: contain;
 background-repeat: no-repeat;
 background-position: center;
 }
@@ -1192,7 +1193,12 @@ top: 25px;
 }
 #wpcf-field-checkbot_title {
 position: absolute;
-left: -31px;
 top: 26px;
 font-size: 0.87em;
+left: -43px;
+}
+
+Matched CSS Rules
+.cagree {
+float: left;
 }

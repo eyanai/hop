@@ -197,7 +197,7 @@ function ValidateID(str)
         } else {
 			switch (res){
 				case '10':
-					$('.alertmessg').text('פורמט קובץ- לא נכון').show();
+					$('.alertmessg').text('פורמט קובץ לא נכון- שם בעיברית או סיומת').show();
 				break;
 				case '8':
 					$('.alertmessg').text('הייתה בעייה בהעלאת הקובץ- אנא נסה שנית').show();

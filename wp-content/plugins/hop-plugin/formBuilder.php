@@ -24,6 +24,7 @@ $categories = get_categories(array('taxonomy'=>'gallery_cat'));
 
 
 function gallery_form_add($toxsonomy='gallery_cat',$req=''){
+
 //get the cange filde titel
 		$pageTitle=get_the_title();
 		$pageID=get_the_id();
@@ -48,7 +49,28 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 		
 	echo "<fieldset class='formimgcon'>
 			<form  action=\"".$_SERVER['REQUEST_URI']; 
-	echo   " \" method=\"post\" enctype=\"multipart/form-data\" target=\"my_frame\" class='addimgform'>
+	echo   " \" method=\"post\" enctype=\"multipart/form-data\" target=\"my_frame\" class='addimgform'>";
+	
+	$categories = get_categories(array('taxonomy'=>'gallery_cat'));
+	echo "
+				<select name=\"galcat\" id=\"galId\" title=\"קטגוריית גלרייה\" style='display:none;'>
+				";
+					foreach($categories as $cat){
+						//echo "<pre>".print_r($cat,1)."</pre>";
+					
+	echo 	"<option value='{$cat->name}' " ;
+				if($cat->slug ==$corrent){
+					echo "selected='selected' ";
+				}
+				
+	echo     "  data-slug='{$cat->slug}'>{$cat->name} </option>";//
+				}
+	echo    "</select>
+	
+	
+	
+	
+		
 				
 				<h2>הילד</h2>
 				<div id='rightFormChild'><input type='text' name='username' id='username' placeholder='שם פרטי' ";
@@ -131,14 +153,18 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 					//echo " >
 						
 					
-					echo"<div class='agreeBox'>	<input type='checkbox' class='trume'><label for='c1'><span></span></label><span class='tarmUse req'>אני מאשר/ת את תנאי השימוש</span>
-						<label for='agree'>".types_render_field('checkbot_title', array("output"=>"html"))."
-						<input type='checkbox' value='yes' name='agree' class='cagree' ";
-			if($agree){echo " class='req' ";};
-					echo " >
-						</label><label for='c1'><span></span></label><span class='tarmUse'></span></div>
+					echo"<div class='agreeBox'>	
+							<input type='checkbox' class='trume'>
+							<span class='tarmUse req'>אני מאשר/ת את תנאי השימוש</span>
+						<br>
+							<input type='checkbox' value='yes' name='agree' class='cagree' ";
+			if($agree){echo " class='tarmUse req' ";};
+					echo " >	
+							<label for='agree' class='castumLabel'>".types_render_field('checkbot_title', array("output"=>"html"))."</label>
+						
+						</div>
 
-						<input type='submit' name='userSubmit' id='galSubmit'>
+						<input type='submit' name='userSubmit' id='galSubmit' value='שלח'>
 			<span class='alertmessg'></span>
 			<span class='formatimg'>ניתן להעלות קבצי JPEG</span>
 			</form>
