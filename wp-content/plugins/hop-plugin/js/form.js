@@ -1,4 +1,4 @@
-$(document).ready(function(e) {
+/*$(document).ready(function(e) {
 
     $('#galId').on('change', function() {
 
@@ -33,7 +33,7 @@ $(document).ready(function(e) {
             }, 4000);
 
         } else {
-            alert('ישנה שגיאה אנא נסה שנית');
+            //alert('ישנה שגיאה אנא נסה שנית');
              $("#galSubmit").val("שלח");
         }
     });
@@ -121,4 +121,4 @@ function imgUploaded(e,fileName){
     
       
        
-}
+}*/

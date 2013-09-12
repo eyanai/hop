@@ -1,19 +1,27 @@
 <?php /* Template Name: גלריית משתמש */ get_header(); ?>
 	
+	<?php
+		$terms = get_the_terms($post->ID, 'gallery_cat');
+			foreach ( $terms as $term ) {
+			$catname=$term->name;
+			}
+	?>
+	
+	
 <section class="singeltopheader gallAll">
 		<div class="socialSingel">
 		<a href="mailto:someone@example.com?Subject=Hello%20again" class="facebookShare" id="sendToFriend" ><span class="letterImg"></span> שלח לחבר</a>
-		<a class="facebookShare" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;">
+		<!--<a class="facebookShare" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;">-->
+		<a title="שתף בפייסבוק"
+      href="http://www.facebook.com/sharer.php?s=100&p[url]=<?php echo curPageURL();?>&p[images][0]=<?php echo get_template_directory_uri(); ?>/images/gallery/logo.png&p[title]=<?php echo $catname;?>&p[summary]=This is the share description"
+      target="_blank"  class="facebookShare">
 		<span class="faceImg"></span> שתף בפייסבוק
 		</a>
 		</div>
 	</section>
 	<section class="topcatdetail cf">
 	<?php 
-			$terms = get_the_terms($post->ID, 'gallery_cat');
-			foreach ( $terms as $term ) {
-			$catname=$term->name;
-			}
+			
 			$post_type = 'forms';
 			$tax = 'gallery_cat';
 			$tax_terms = get_terms($tax);

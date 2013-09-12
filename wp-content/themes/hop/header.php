@@ -38,6 +38,10 @@
 	<?php if ( is_singular() ) wp_enqueue_script('comment-reply'); ?>
 
 	<?php wp_head(); ?>
+	
+	<meta property="og:title" content="<?php bloginfo('name');?>"/>
+	<meta property="og:url" content="<?php echo curPageURL();?>"/>
+	<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/images/gallery/logo.png"/>
 </head>
 
 <body <?php body_class(); ?>>
@@ -64,10 +68,10 @@
 			<?php  if(is_single()|| is_taxonomy('gallery_cat')):?>
 			<header class="galleryHead">
 					<div class="logoGallery">
-						<a href="<?php echo home_url(); ?>">
+						<?php /*?><a href="<?php echo home_url(); ?>"><?php */?>
 							<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
 							<img src="<?php echo get_template_directory_uri(); ?>/images/gallery/logo.png" alt="Logo" class="logo-img">
-						</a>
+						<?php /*?></a><?php */?>
 					</div>
 					<div class="logosSingel">
 						<img src="<?php echo get_template_directory_uri(); ?>/images/gallery/sumsum.png" alt="Logo" class="logo-img-right">

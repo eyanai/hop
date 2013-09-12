@@ -205,13 +205,16 @@ function ValidateID(str)
 				case '2':
 					$('.alertmessg').text('גודל הקובץ חורג מהמותר').show();
 				break;
+				case '4':
+					$('.alertmessg').text('לא נבחר קובץ').show();
+				break;
 				case '1':
 					$('.alertmessg').text('גודל הקובץ חורג מהמותר').show();
 				break;
 				default:
 				$('.alertmessg').hide();
 			}
-			alert('ישנה שגיאה אנא נסה שנית');
+			//alert('ישנה שגיאה אנא נסה שנית');
              $("#galSubmit").val("שלח");
         }
     });
