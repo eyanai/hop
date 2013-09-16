@@ -190,8 +190,12 @@ function ValidateID(str)
             //$('fieldset').fadeOut('fast', function() { $('.massegShow').html('התמונה והתוכן נוספו').fadeIn(); });
             //if succsess to send the form -
             $("#galSubmit").val("נשלח בהצלחה!");
-            setTimeout(function() {
-                $("#galSubmit").val("שלח");
+			
+			setTimeout(function() {
+				$("#galSubmit").val("שלח");
+				$('#username,#userlastname,#userage,#userSchool,textarea').val('');
+            	$('input[type="checkbox"]').attr('checked', false);
+				$('.file_upload').css('background-image','none');
             }, 5000);
 
         } else {

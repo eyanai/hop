@@ -480,7 +480,7 @@ input#galSubmit {
 	font-weight: bold;
 	color: #FFF;
 	text-align: center;
-	padding-top: 8px;
+	padding-top: 0;
   -webkit-border-top-right-radius: 15px;
 	-webkit-border-bottom-right-radius: 15px;
   -webkit-border-top-left-radius: 15px;
@@ -498,6 +498,7 @@ input#galSubmit {
 	text-align: center;
 	border:none;
 	cursor: pointer;
+	font-size: 15px;
 }
 
 
@@ -825,6 +826,9 @@ ul.cat_gallery li{
 	border-radius: 25px;
 	overflow: hidden;
 }
+ul.cat_gallery li:hover{
+	border-color:#fff;
+}
 .mainGallImg{
 	width:225px;
 	height:145px;
@@ -840,12 +844,12 @@ ul.cat_gallery li{
 	text-align:center;
 	padding-top:3px;
 }
-.subtitle:hover{
+/*.subtitle:hover{
 	border: solid 3px #fff;
 	border-radius: 0px 0px 25px 25px;
 	bottom:-1px;
 	width:220px;
-}
+}*/
 .conGall{
 	width:790px;
 	height:345px;

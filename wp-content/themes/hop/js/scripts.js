@@ -52,6 +52,7 @@ $('.mutagSlider li').hover(function(e){
 	});
 	
 	$('.showAll').on('click',this,function(){
+		$('.inputGall').val('');
 		$('.bigImgCon li').show().removeClass();
 		$('.letter').removeClass('active');
 		wFixGall();
@@ -91,6 +92,14 @@ $('.mutagSlider li').hover(function(e){
 		$('.arb').addClass('active');
 	});
 
+
+
+
+$('.facebookShare').on('click',this,function(e){
+	//url=$(this).attr('href');
+	//alert(url);
+	//return false;
+});
 
 });///////dom ready
 
@@ -266,6 +275,7 @@ function latterS(){
 	
 	$('.letter').on('click',this,function(){
 		$('.letter').removeClass('active');
+		$('.inputGall').val('');
 		$(this).addClass('active');
 	});
 	
@@ -318,4 +328,5 @@ function resetS(){
 	$('.circule.right.gallery').hide();
 	$('.circule.left.gallery').hide();
 }
+
 

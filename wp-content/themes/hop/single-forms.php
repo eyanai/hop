@@ -74,7 +74,8 @@
 		
 		
 		<p><?php the_field('gallery_show'); ?></p>
-	<?php	$terms = get_the_terms($post->ID, 'gallery_cat');
+	<?php	
+			$terms = get_the_terms($post->ID, 'gallery_cat');
 //			foreach ( $terms as $term ) {
 //			$catname=$term->name;
 //			$regu=get_field('gall_regulations','gallery_cat_'.$term->term_id);
@@ -84,11 +85,13 @@
 		$terms = get_the_terms($post->ID, 'gallery_cat');
 			foreach ( $terms as $term ) {
 			echo '<div class="formCatDetails">';
-			$catname=$term->name;
-			
 			echo "<h2>".$catname."</h2>";
-			echo "<div class='textDescript'>".the_field('gallry_description','gallery_cat_'.$term->term_id)."</div></div>";
+			echo "<div class='textDescript'>".the_field('gallry_description','gallery_cat_'.$term->term_id)."</div>";
+			?>
 			
+			<?php
+			
+			echo '</div>';
 			}
 			
 		?>
