@@ -157,7 +157,7 @@ ol.commentlist li.thread-odd { }
 form { }
 input { 
 	/* padding-right:2px; */
-    color: #6196AC;
+    color: #000;
 	
 }
 
@@ -1023,8 +1023,10 @@ margin-top: 8px;
     color: #fff !important;
     height: 20px;
     width: 20px !important;
-    margin-top: -2px !important;
-    line-height: 21px;    
+    
+ margin-top: 0px !important;
+    
+ line-height: 19px;    
 }
   
  .letter, .letter:hover {
@@ -1057,6 +1059,7 @@ border-radius: 18px;
 	width:90px;
 	height:40px;
 	left: 0px;
+
 	background: #2f8199;
 	line-height: 40px;
 	color: #fff;

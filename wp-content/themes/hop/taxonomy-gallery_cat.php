@@ -8,12 +8,24 @@
 	?>
 	
 	
+	
+	
 <section class="singeltopheader gallAll">
+		<?php 
+			$terms = get_the_terms($post->ID, 'gallery_cat');
+			foreach ( $terms as $term ) {
+			$term->term_id;
+				//echo  get_field('img_icon','gallery_cat_'.$term->term_id);
+				$shareimg=get_field('img_icon','gallery_cat_'.$term->term_id);
+				$shareimg=$shareimg['url'];
+			}?>
+	
 		<div class="socialSingel">
+		
 		<a href="mailto:someone@example.com?Subject=Hello%20again" class="facebookShare" id="sendToFriend" ><span class="letterImg"></span> שלח לחבר</a>
 		<!--<a class="facebookShare" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;">-->
 		<a title="שתף בפייסבוק"
-      href="http://www.facebook.com/sharer.php?s=100&p[url]=<?php echo curPageURL();?>&p[images][0]=<?php echo get_template_directory_uri(); ?>/images/gallery/logo.png&p[title]=<?php echo $catname;?>&p[summary]=בואו לראות את 'המשפחה שלי' בגלריית ערוץ הופ! גם אתם יכולים להעלות תמונה משפחתית ולהופיע בגלרייה. כי בכל משפחה יש משהו"
+      href="http://www.facebook.com/sharer.php?s=100&p[url]=<?php echo curPageURL();?>&p[images][0]=<?php echo $shareimg;?>&p[title]=<?php echo $catname;?>&p[summary]=בואו לראות את 'המשפחה שלי' בגלריית ערוץ הופ! גם אתם יכולים להעלות תמונה משפחתית ולהופיע בגלרייה. כי בכל משפחה יש משהו מיוחד"
       target="_blank"  class="facebookShare">
 		<span class="faceImg"></span> שתף בפייסבוק
 		</a>
@@ -280,7 +292,7 @@
 		<span class="eng"><span class="lang-letter">En</span></span>
 		<span class="arb"><span class="lang-letter">ي</span></span>
 		
-		<a href="#" class="standart">תקנון</a>
+		<a href="<?php echo get_template_directory_uri()?>/asset/trum.pdf" target="new" class="standart">תקנון</a>
 	</section>
 
 

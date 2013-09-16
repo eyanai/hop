@@ -57,7 +57,9 @@ $('.mutagSlider li').hover(function(e){
 		wFixGall();
 	});
 	
-	latterS();
+	
+	
+		latterS();
 	
 	$('.inputGall').on('keydown',this,function(e){
 		if(e.keyCode==13){
@@ -157,8 +159,9 @@ function prePost(id){
 }
 ///////////////gallery func
 function wFixGall(){
-	w=Math.ceil( $('.bigImgCon li').length/6);
-	W=w*790;
+	w=Math.ceil( $('.bigImgCon li').length/2);
+	p=$('.bigImgCon li').length*2;
+	W=(w*260)+p;
 	$('.bigImgCon').css({'left':'0px'});
 	if(W<790){
 		$('.bigImgCon').css({'width':'790px'});
@@ -176,9 +179,9 @@ function wFixGall(){
 }
 
 function wFixGallS(){
-	w=Math.round($('.bigImgCon li.show').length/6);
-	$('.bigImgCon').css({'width':'790px'});
-	W=w*790;
+	w=Math.ceil( $('.bigImgCon li.show').length/2);
+	p=$('.bigImgCon li').length*2;
+	W=(w*260)+p;
 	if(W<790){
 		$('.bigImgCon').css({'width':'790px'});
 	}else{
@@ -258,6 +261,9 @@ function backGall(){
 }
 
 function latterS(){
+	var value;
+	
+	
 	$('.letter').on('click',this,function(){
 		$('.letter').removeClass('active');
 		$(this).addClass('active');
@@ -271,11 +277,16 @@ function latterS(){
 		}else{
 			value=$('.inputGall').val().toLowerCase();
 		}
+	
+	
 		
 		
-		if(value==''){
+	if(value==''){
 			return;
 		}else{
+			
+			localStorage.setItem('sGalleryHop',value);
+			
 			$('.bigImgCon li').removeClass();
 			$('.mainNeme').each(function(index, element) {
 				cVal=$(this).text().toLowerCase();
