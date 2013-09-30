@@ -78,7 +78,7 @@ function ValidateID(str)
 				
 				emailt = $('#email').val();
 				var emailfilter = /(([a-zA-Z0-9\-?\.?]+)@(([a-zA-Z0-9\-_]+\.)+)([a-z]{2,3}))+$/;
-				alert(emailfilter.test(emailt));
+				//alert(emailfilter.test(emailt));
 					if((emailt != "") && (emailfilter.test(emailt))) {
 						mail=true;
 					  $('input[type="email"]').removeClass('act');
@@ -97,21 +97,24 @@ function ValidateID(str)
 					$(this).addClass('act need');
 				}
 				
-				
-				$('.need').each(function(index, element) {
-					if($(this).val()!=''){
-						$(this).removeClass('act need');
-						
-						$('input.req[type="text"]').each(function(index, element) {
-							if($(this).hasClass('need')){
-								inputc=false;
-								messeg='אנא מלא שדות נדרשים';
-							}else{
-								inputc=true;
-							}	
-						});
-					}
-				});
+				if($('.need').length!=0){
+					$('.need').each(function(index, element) {
+						if($(this).val()!=''){
+							$(this).removeClass('act need');
+							
+							$('input.req[type="text"]').each(function(index, element) {
+								if($(this).hasClass('need')){
+									inputc=false;
+									messeg='אנא מלא שדות נדרשים';
+								}else{
+									inputc=true;
+								}	
+							});
+						}
+					});
+				}else{
+					inputc=true;
+				}
 			});
 				
 			if(!($('input[type="text"]').hasClass('req'))){

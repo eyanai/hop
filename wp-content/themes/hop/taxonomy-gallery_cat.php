@@ -22,10 +22,10 @@
 	
 		<div class="socialSingel">
 		
-		<a href="mailto:someone@example.com?Subject=Hello%20again" class="facebookShare" id="sendToFriend" ><span class="letterImg"></span> שלח לחבר</a>
+		<a  href="mailto:?Subject=<?php echo $catname;?>&body=בואו לראות את 'המשפחה שלי' בגלריית ערוץ הופ! גם אתם יכולים להעלות תמונה משפחתית ולהופיע בגלרייה. כי בכל משפחה יש משהו מיוחד" class="facebookShare" target="new"><span class="letterImg"></span> שלח לחבר</a>
 		<!--<a class="facebookShare" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;">-->
 		<a title="שתף בפייסבוק" href="http://www.facebook.com/sharer.php?s=100&p[url]=<?php echo curPageURL();?>&p[images][0]=<?php echo $shareimg;?>&p[title]=<?php echo $catname;?>&p[summary]=בואו לראות את 'המשפחה שלי' בגלריית ערוץ הופ! גם אתם יכולים להעלות תמונה משפחתית ולהופיע בגלרייה. כי בכל משפחה יש משהו מיוחד"
-      target="_blank"   class="facebookShare">
+      target="_blank"  id="galleryShare" class="facebookShare">
 		<span class="faceImg"></span> שתף בפייסבוק
 		</a>
 		</div>

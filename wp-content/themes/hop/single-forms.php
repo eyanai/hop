@@ -85,10 +85,12 @@
 		$terms = get_the_terms($post->ID, 'gallery_cat');
 			foreach ( $terms as $term ) {
 			echo '<div class="formCatDetails">';
+		//	echo "<pre>".print_r($term,1)."</pre>";
 			echo "<h2>".$catname."</h2>";
 			echo "<div class='textDescript'>".the_field('gallry_description','gallery_cat_'.$term->term_id)."</div>";
 			?>
 			
+			<a href="<?php echo get_site_url()."/?".$term->taxonomy."=".$term->slug; ?>" class="backgallery" >לגלריית תמונות</a> 
 			<?php
 			
 			echo '</div>';

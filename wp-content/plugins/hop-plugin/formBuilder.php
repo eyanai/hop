@@ -134,10 +134,10 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 						
 						<input type='email'  name='email' id='email' placeholder='כתובת מייל' ";
 			if($userEmail_fiede){echo " class='req'  ";};
-					echo "	><br>
+					echo "	><br>";
 			
-			<h3>תנו לנו את הסיסמא שלכם לזהירות בדרכים</h3><textarea name='moto'></textarea><br>
-						<div class='custom_file_upload'>
+		//	<h3>תנו לנו את הסיסמא שלכם לזהירות בדרכים</h3><textarea name='moto'></textarea><br>
+					echo"	<div class='custom_file_upload'>
 							<div class='file_upload'>
 								<input type='file' id='file_upload' name='file'";
 			if($file_fiede){echo " class='req'  ";};
@@ -155,7 +155,7 @@ function gallery_form_add($toxsonomy='gallery_cat',$req=''){
 					
 					echo"<div class='agreeBox'>	
 							<input type='checkbox' class='trume'>
-							<span class='tarmUse req'>אני מאשר/ת את תנאי השימוש</span>
+							<span class='tarmUse req'>אני מאשר/ת את תנאי השימוש.<a href='http://hoptest.com.tigris.nethost.co.il/wp-content/themes/hop/asset/trum.pdf'  target='_blank'> לתקנון </a></span>
 						<br>
 							<input type='checkbox' value='yes' name='agree' class='cagree' ";
 			if($agree){echo " class='tarmUse req' ";};

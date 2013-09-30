@@ -95,10 +95,11 @@ $('.mutagSlider li').hover(function(e){
 
 
 
-$('.facebookShare').on('click',this,function(e){
-	//url=$(this).attr('href');
+$('#galleryShare,#faceshre').on('click',this,function(e){
+	url=$(this).attr('href');
+	window.open(url,'facebook-share-dialog','width=626,height=436');
 	//alert(url);
-	//return false;
+	return false;
 });
 
 });///////dom ready
@@ -109,6 +110,14 @@ $('.facebookShare').on('click',this,function(e){
 function nextPost(id){
 			
 			$('.mascLoder').show();
+			
+			var base="http://www.facebook.com/sharer.php?s=100&p[url]=";
+			var url=$('#faceshre').data('url');
+			var img='&p[images][0]='+$('#faceshre').data('imag');
+			var title='&p[title]='+$('#faceshre').data('title');
+			var sammery='&p[summary]='+$('#faceshre').data('sammery');
+			
+		
 			
 			$.post(ajax_object.ajaxurl, {
 			id:id,
@@ -130,6 +139,10 @@ function nextPost(id){
 					$('.mascLoder').hide();
 					$('.imgSingelPostCon').attr('cId',obj.postid);
 					$('.writer').text(obj.writer);
+					
+					//share facebook link
+					img='&p[images][0]='+src;
+					$('.facebookShare').attr('href',''+base+url+img+title+sammery+'');
 				}
 			});		
 		
@@ -138,6 +151,13 @@ function nextPost(id){
 
 function prePost(id){
 			$('.mascLoder').show();
+			
+			var base="http://www.facebook.com/sharer.php?s=100&p[url]=";
+			var url=$('#faceshre').data('url');
+			var img='&p[images][0]='+$('#faceshre').data('imag');
+			var title='&p[title]='+$('#faceshre').data('title');
+			var sammery='&p[summary]='+$('#faceshre').data('sammery');
+			
 	
 			$.post(ajax_object.ajaxurl, {
 			id:id,
@@ -161,6 +181,9 @@ function prePost(id){
 					$('.mascLoder').hide();
 					$('.imgSingelPostCon').attr("cId",obj.postid);
 					$('.writer').text(obj.writer);
+				//share facebook link
+					img='&p[images][0]='+src;
+					$('.facebookShare').attr('href',''+base+url+img+title+sammery+'');
 				}
 			});		
 		

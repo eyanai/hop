@@ -14,11 +14,11 @@
 		<h1 class="singelCat"><?php echo $titleCat?></h1>
 	
 		<div class="socialSingel">
-		<a  href="mailto:someone@example.com?Subject=Hello%20again" class="facebookShare"><span class="letterImg"></span> שלח לחבר</a>
+		<a  href="mailto:?Subject=<?php echo $titleCat?>&body=בואו לראות את 'המשפחה שלי' בגלריית ערוץ הופ! גם אתם יכולים להעלות תמונה משפחתית ולהופיע בגלרייה. כי בכל משפחה יש משהו מיוחד" class="facebookShare" target="new"><span class="letterImg"></span> שלח לחבר</a>
 		<!--<a class="facebookShare" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;">-->
 		<a title="שתף בפייסבוק"
-      href="http://www.facebook.com/sharer.php?s=100&p[url]=<?php echo curPageURL();?>&p[images][0]=<?php echo $meta; ?>&p[title]=<?php echo $catname;?>&p[summary]=בואו לראות את 'המשפחה שלי' בגלריית ערוץ הופ! גם אתם יכולים להעלות תמונה משפחתית ולהופיע בגלרייה. כי בכל משפחה יש משהו"
-      target="_blank"  class="facebookShare">
+      href="http://www.facebook.com/sharer.php?s=100&p[url]=<?php echo curPageURL();?>&p[images][0]=<?php echo $meta; ?>&p[title]=<?php echo $titleCat;?>&p[summary]=בואו לראות את 'המשפחה שלי' בגלריית ערוץ הופ! גם אתם יכולים להעלות תמונה משפחתית ולהופיע בגלרייה. כי בכל משפחה יש משהו מיוחד"
+      target="_blank" id='faceshre' class="facebookShare" data-title='<?php echo $titleCat;?>' data-url='<?php  echo curPageURL(); ?>' data-imag='<?php echo $meta; ?>' data-sammery="בואו לראות את 'המשפחה שלי' בגלריית ערוץ הופ! גם אתם יכולים להעלות תמונה משפחתית ולהופיע בגלרייה. כי בכל משפחה יש משהו מיוחד">
 		<span class="faceImg"></span> שתף בפייסבוק
 		</a>
 		</div>
