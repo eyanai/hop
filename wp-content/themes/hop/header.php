@@ -17,16 +17,23 @@
 		      elseif (is_search()) {
 		         echo 'Search for &quot;'.wp_specialchars($s).'&quot; - '; }
 		      elseif (!(is_404()) && (is_single()) || (is_page())) {
-		         wp_title(''); echo ' - '; }
+				  $terms = get_the_terms($post->ID, 'gallery_cat');
+					foreach($terms as $title){
+						$titleCat=$title->name;
+					}
+		        echo $titleCat.' - '; }
 		      elseif (is_404()) {
 		         echo 'Not Found - '; }
+
 		      if (is_home()) {
 		         bloginfo('name'); echo ' - '; bloginfo('description'); }
 		      else {
-		          bloginfo('name'); 
+		        bloginfo('name'); 
                   }
 		      if ($paged>1) {
-		         echo ' - page '. $paged; }
+		         echo ' - page '. $paged; 
+			}
+			
 		   ?>
 	</title>
 	
