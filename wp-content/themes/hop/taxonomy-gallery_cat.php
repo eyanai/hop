@@ -4,6 +4,7 @@
 		$terms = get_the_terms($post->ID, 'gallery_cat');
 			foreach ( $terms as $term ) {
 			$catname=$term->name;
+			$catslug=$term->slug;
 			}
 	?>
 	
@@ -21,10 +22,10 @@
 			}?>
 	
 		<div class="socialSingel">
-		
+		<?php $corennt_url=get_site_url().'/?gallery_cat='.$catslug;?>
 		<a  href="mailto:?Subject=<?php echo $catname;?>&body=בואו לראות את 'המשפחה שלי' בגלריית ערוץ הופ! גם אתם יכולים להעלות תמונה משפחתית ולהופיע בגלרייה. כי בכל משפחה יש משהו מיוחד" class="facebookShare" target="new"><span class="letterImg"></span> שלח לחבר</a>
 		<!--<a class="facebookShare" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;">-->
-		<a title="שתף בפייסבוק" href="http://www.facebook.com/sharer.php?s=100&p[url]=<?php echo curPageURL();?>&p[images][0]=<?php echo $shareimg;?>&p[title]=<?php echo $catname;?>&p[summary]=בואו לראות את 'המשפחה שלי' בגלריית ערוץ הופ! גם אתם יכולים להעלות תמונה משפחתית ולהופיע בגלרייה. כי בכל משפחה יש משהו מיוחד"
+		<a title="שתף בפייסבוק" href="http://www.facebook.com/sharer.php?s=100&p[url]=<?php echo curPageURL();?>&p[images][0]=<?php echo $shareimg;?>&p[title]=<?php echo $catname;?>&p[summary]=בואו לראות את 'המשפחה שלי' בגלריית ערוץ הופ!%0D%0A גם אתם יכולים להעלות תמונה משפחתית ולהופיע בגלרייה. %0D%0A כי בכל משפחה יש משהו מיוחד"
       target="_blank"  id="galleryShare" class="facebookShare">
 		<span class="faceImg"></span> שתף בפייסבוק
 		</a>

@@ -13,7 +13,7 @@
 		      if (function_exists('is_tag') && is_tag()) {
 		         single_tag_title("Tag Archive for &quot;"); echo '&quot; - '; }
 		      elseif (is_archive()) {
-		         wp_title(''); echo ' Archive - '; }
+		         wp_title(''); echo ' - '; }
 		      elseif (is_search()) {
 		         echo 'Search for &quot;'.wp_specialchars($s).'&quot; - '; }
 		      elseif (!(is_404()) && (is_single()) || (is_page())) {
@@ -69,12 +69,16 @@
 			<header class="galleryHead">
 					<div class="logoGallery">
 						<?php /*?><a href="<?php echo home_url(); ?>"><?php */?>
+						<a href="http://www.hop.co.il/default.aspx">
 							<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
 							<img src="<?php echo get_template_directory_uri(); ?>/images/gallery/logo.png" alt="Logo" class="logo-img">
 						<?php /*?></a><?php */?>
+						</a>
 					</div>
 					<div class="logosSingel">
-						<img src="<?php echo get_template_directory_uri(); ?>/images/gallery/sumsum.png" alt="Logo" class="logo-img-right">
+						<a href="http://www.hop.co.il/sesameNew/index.html">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/gallery/sumsum.png" alt="Logo" class="logo-img-right">
+						</a>
 						<img src="<?php echo get_template_directory_uri(); ?>/images/gallery/mrechavim.png" alt="Logo" class="logo-img-right secound">
 					</div>
 			</header>

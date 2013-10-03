@@ -471,7 +471,7 @@ left: 0px;
 }
 
 input#galSubmit {
-	width: 90px;
+	width: 100px;
 	height: 40px;
 	background: #1B5966;
 	display: inline;
@@ -1150,7 +1150,9 @@ background-position:0 0;*/
 	float:left;
 	margin-left: 20px;
 }
-
+.mainNeme{
+	font-weight:bolder;
+}
 
 
 /* =========  Yanai check it out..  ======== */
