@@ -23,7 +23,8 @@
 		      if (is_home()) {
 		         bloginfo('name'); echo ' - '; bloginfo('description'); }
 		      else {
-		          bloginfo('name'); }
+		          bloginfo('name'); 
+                  }
 		      if ($paged>1) {
 		         echo ' - page '. $paged; }
 		   ?>

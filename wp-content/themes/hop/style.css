@@ -470,6 +470,10 @@ top: 510px;
 left: 0px;
 }
 
+#galSubmit.green{
+    color: #00A76C;
+}
+
 input#galSubmit {
 	width: 100px;
 	height: 40px;
