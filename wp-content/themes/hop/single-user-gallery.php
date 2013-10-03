@@ -2,10 +2,15 @@
 <?php ?>
 <!-- section -->
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
-<?php 
+<?php
+////////////
+
+	
+ /////////////
 	$terms = get_the_terms($post->ID, 'gallery_cat');
 	foreach($terms as $title){
 		$titleCat=$title->name;
+		
 	}
 	?>
 	<?php $meta = get_post_meta($post->ID,'wpcf-user_img',true); ?>
@@ -44,6 +49,7 @@
 					
 			
 		</div>
+		<div class="gallery_back_singel"><a href="<?php echo get_term_link($title,'gallery_cat');?>" class="backgallery" >לגלריית תמונות</a></div>
 	</div>
 	<?php 
 				//get category

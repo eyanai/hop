@@ -4,7 +4,7 @@ Plugin Name: hop cannel plugin by yanai
 Plugin URI: 
 Description: This plugin does things you never thought were possible NEEDED FOR TYPES PLUGIN!!!.
 Author: yanai edri
-Version: 1.0
+Version: 1.1
 Author URI: http://www.cambium.co.il/
 
 Copyright 2013  yanai edri
@@ -49,14 +49,18 @@ function authorNotification ($post_id) {
 	$statyus=get_post_status( $post_id );
 	$ststusPost=get_post_meta($post_id, 'post_report',true);
 	
+	$terms = get_the_terms($post_id, 'gallery_cat');
+	foreach($terms as $title){
+		$titleCat=$title->name;
+	}
 	
 	update_post_meta($post_id, 'post_report', $statyus);
 	
 		$userMail=get_post_meta($post_id,'wpcf-parent_email',true);
 			$userName=get_post_meta($post_id,'wpcf-user_parent',true);
-			  $message = " שלום ".$userName.",התמונה, ".$post->post_title." פורסמה לפי שיקולי המערכת ".get_permalink( $post_id ).". בהצלחה!";
+			  $message = " גלרייית ".$titleCat." - תמונתך פורסמה ".get_permalink( $post_id );
 		   if($userMail) {
-			   wp_mail($userMail, "התמונה שלך פורסמה !!!", $message);
+			   wp_mail($userMail, "אתר ערוץ הופ! (אין להשיב למייל זה)", $message);
 				update_post_meta($post_id, 'post_report', 'mail send');
 		   }
 		

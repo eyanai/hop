@@ -74,7 +74,12 @@
 			<?php
 			$term->term_id;
 				//echo  get_field('img_icon','gallery_cat_'.$term->term_id);
-				echo "<div class='textDescript'>".the_field('gallry_description','gallery_cat_'.$term->term_id)."</div>";
+			?>
+				
+				<div class='textDescript'><?php echo the_field('gallry_description','gallery_cat_'.$term->term_id);?>
+				<a href='<?php echo $formlink ;?>' class='formreadmore'>לפרטים נוספים</a>
+				</div>
+			<?php	
 				$a=get_field('img_icon','gallery_cat_'.$term->term_id);
 				
 				?>

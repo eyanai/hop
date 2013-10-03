@@ -1243,3 +1243,34 @@ float: left;
 	bottom: 5px;
 	left: 5px;
 }
+.gallery_back_singel {
+	position: absolute;
+	left: 0;
+	bottom: -80px;
+}
+.textDescript {
+height: 80px;
+width: 420px;
+}
+.formreadmore {
+position: absolute;
+left: 9px;
+bottom: 5px;
+font-size: 0.8em;
+color: #fff;
+text-decoration: none;
+display: block;
+width: 55px;
+background: #1B5966;
+text-align: center;
+-webkit-border-top-right-radius: 15px;
+	-webkit-border-bottom-right-radius: 15px;
+	-webkit-border-top-left-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-moz-border-radius-topleft: 15px;
+	-moz-border-radius-bottomleft: 15px;
+	-moz-border-radius-topleft: 15px;
+	-moz-border-radius-bottomleft: 15px;
+	border-radius: 15px;
+	outline: none;
+}
